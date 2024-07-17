@@ -1,0 +1,15 @@
+{
+	"name": "tistory-react",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"devDependencies": {
+		"@modern-js/module-tools": "^2.55.0",
+		"@modern-js/tsconfig": "^2.55.0",
+		"@types/node": "^20.14.11",
+		"lerna": "^7.4.2",
+		"prettier": "^3.3.3"
+	},
+	"packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+}

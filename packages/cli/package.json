@@ -1,0 +1,54 @@
+{
+  "name": "tistory-react",
+  "version": "1.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "bin": {
+    "tistory-react": "./bin/tistory-react.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eunbae0/tistory-react",
+    "directory": "packages/cli"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/index.js"
+    },
+    "./runtime": {
+      "default": "./runtime.ts"
+    },
+    "./theme": {
+      "default": "./theme.ts"
+    },
+    "./config": {
+      "default": "./config.ts"
+    }
+  },
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "test": "vitest run",
+    "reset": "rimraf ./**/node_modules",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rsbuild/core": "1.0.1-beta.2",
+    "@tistory-react/core": "workspace:*",
+    "@tistory-react/shared": "workspace:*",
+    "cac": "^6.7.14",
+    "chalk": "^5.3.0",
+    "chokidar": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "typescript": "^5.5.3"
+  }
+}

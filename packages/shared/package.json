@@ -1,0 +1,59 @@
+{
+  "name": "@tistory-react/shared",
+  "version": "1.0.0",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./execa": {
+      "types": "./dist/execa.d.ts",
+      "import": "./dist/execa.mjs",
+      "require": "./dist/execa.js"
+    },
+    "./chalk": {
+      "types": "./dist/chalk.d.ts",
+      "import": "./dist/chalk.mjs",
+      "require": "./dist/chalk.js"
+    },
+    "./fs-extra": {
+      "types": "./dist/fs-extra.d.ts",
+      "import": "./dist/fs-extra.mjs",
+      "require": "./dist/fs-extra.js"
+    },
+    "./logger": {
+      "types": "./dist/logger.d.ts",
+      "import": "./dist/logger.mjs",
+      "require": "./dist/logger.js"
+    },
+    "./node-utils": {
+      "types": "./dist/node-utils.d.ts",
+      "import": "./dist/node-utils.mjs",
+      "require": "./dist/node-utils.js"
+    }
+  },
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "test": "vitest run",
+    "reset": "rimraf ./**/node_modules",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rsbuild/core": "1.0.1-beta.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}
