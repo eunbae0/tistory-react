@@ -49,9 +49,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rsbuild/core": "1.0.1-beta.2"
+    "@rsbuild/core": "1.0.1-beta.2",
+    "fs-extra": "^11.2.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.14.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"

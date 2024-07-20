@@ -7,7 +7,7 @@ export default defineConfig({
       input: [
         'src/index.ts',
         'src/logger.ts',
-        // "src/fs-extra.ts",
+        'src/fs-extra.ts',
         // "src/chalk.ts",
         // "src/execa.ts",
         // "src/node-utils.ts",
@@ -22,7 +22,7 @@ export default defineConfig({
       input: [
         'src/index.ts',
         'src/logger.ts',
-        // "src/fs-extra.ts",
+        'src/fs-extra.ts',
         // "src/chalk.ts",
         // "src/execa.ts",
         // "src/node-utils.ts",
