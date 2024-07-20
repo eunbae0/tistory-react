@@ -1,0 +1,45 @@
+{
+  "name": "@tistory-react/runtime",
+  "version": "1.0.0",
+  "bugs": "https://github.com/eunbae0/tistory-react/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eunbae0/tistory-react",
+    "directory": "packages/runtime"
+  },
+  "license": "MIT",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "default": "./server.js"
+    }
+  },
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "reset": "rimraf ./**/node_modules",
+    "test": "echo nothing"
+  },
+  "engines": {
+    "node": ">=14.17.6"
+  },
+  "dependencies": {
+    "@tistory-react/shared": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.25.1"
+  },
+  "devDependencies": {
+    "@modern-js/tsconfig": "2.55.0",
+    "@types/jest": "~29.5.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.3"
+  }
+}
