@@ -1,12 +1,46 @@
 {
-	"name": "@tistory-react/core",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC"
+  "name": "@tistory-react/core",
+  "version": "1.0.0",
+  "description": "Create Tistory Skin with React.js",
+  "bugs": "https://github.com/eunbae0/tistory-react/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eunbae0/tistory-react",
+    "directory": "packages/cli/core"
+  },
+  "type": "module",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/node/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./theme": {
+      "default": "./theme.ts"
+    },
+    "./theme.css": "./theme.css",
+    "./runtime": {
+      "default": "./runtime.ts"
+    }
+  },
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "reset": "rimraf ./**/node_modules",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@rsbuild/core": "1.0.1-beta.2",
+    "@tistory-react/shared": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
 }
