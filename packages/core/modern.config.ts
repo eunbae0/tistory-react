@@ -19,13 +19,13 @@ export default defineConfig({
         '../compiled/globby/index.js',
       ],
     },
-    // {
-    //   sourceDir: 'src/runtime',
-    //   buildType: 'bundleless',
-    //   target: 'es2020',
-    //   format: 'esm',
-    //   outDir: 'dist/runtime',
-    //   tsconfig: './src/runtime/tsconfig.json',
-    // },
+    {
+      sourceDir: 'src/runtime',
+      buildType: 'bundleless',
+      target: 'es2020',
+      format: 'esm',
+      outDir: 'dist/runtime',
+      tsconfig: './src/runtime/tsconfig.json',
+    },
   ],
 });

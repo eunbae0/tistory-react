@@ -5,6 +5,7 @@ import chokidar from 'chokidar';
 import chalk from 'chalk';
 import { logger } from '@tistory-react/shared/logger';
 import { loadConfigFile } from './config/loadConfigFile';
+import { dev } from '@tistory-react/core';
 
 const CONFIG_FILES = ['tistory-react.config.ts', 'tistory-react.config.js'];
 
@@ -38,11 +39,11 @@ cli
       const cwd = process.cwd();
       let docDirectory: string;
       let cliWatcher: chokidar.FSWatcher;
-      // let devServer: Awaited<ReturnType<typeof dev>>;
+      let devServer: Awaited<ReturnType<typeof dev>>;
+
       const startDevServer = async () => {
         const { port, host } = options || {};
         const config = await loadConfigFile(options?.config);
-
         if (root) {
           // Support root in command, override config file
           config.root = path.join(cwd, root);
@@ -52,12 +53,12 @@ cli
         }
 
         docDirectory = config.root || path.join(cwd, root ?? 'docs');
-        // devServer = await dev({
-        //   appDirectory: cwd,
-        //   docDirectory,
-        //   config,
-        //   extraBuilderConfig: { server: { port, host } },
-        // });
+        devServer = await dev({
+          appDirectory: cwd,
+          docDirectory,
+          config,
+          extraBuilderConfig: { server: { port, host } },
+        });
         cliWatcher = chokidar.watch(
           [`${cwd}/**/{${CONFIG_FILES.join(',')}}`, docDirectory!],
           {
@@ -66,6 +67,7 @@ cli
           },
         );
         cliWatcher.on('all', async (eventName, filepath) => {
+          // restart if change CONFIG_FILES
           if (
             eventName === 'add' ||
             eventName === 'unlink' ||
@@ -81,7 +83,7 @@ cli
                 path.relative(cwd, filepath),
               )}, dev server will restart...\n`,
             );
-            // await devServer.close();
+            await devServer.close();
             await cliWatcher.close();
             await startDevServer();
             isRestarting = false;
@@ -93,7 +95,7 @@ cli
 
       const exitProcess = async () => {
         try {
-          // await devServer.close();
+          await devServer.close();
           await cliWatcher.close();
         } finally {
           process.exit(0);
