@@ -17,6 +17,6 @@
 		"modern.config.ts",
 		"runtime.ts",
 		"theme.ts"
-	],
+, "config.ts"	],
 	"exclude": ["**/node_modules"]
 }

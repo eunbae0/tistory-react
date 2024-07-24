@@ -1,0 +1,12 @@
+{
+  "extends": "@modern-js/tsconfig/base",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+  },
+  "include": [
+    "./rspress.config.ts",
+    "src/**/*",
+  ],
+}
