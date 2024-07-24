@@ -5,7 +5,7 @@ import chokidar from 'chokidar';
 import chalk from 'chalk';
 import { logger } from '@tistory-react/shared/logger';
 import { loadConfigFile } from './config/loadConfigFile';
-import { dev } from '@tistory-react/core';
+import { dev, build } from '@tistory-react/core';
 
 const CONFIG_FILES = ['tistory-react.config.ts', 'tistory-react.config.js'];
 
@@ -106,5 +106,19 @@ cli
       process.on('SIGTERM', exitProcess);
     },
   );
+
+cli.command('build [root]').action(async (root, options) => {
+  setNodeEnv('production');
+  const cwd = process.cwd();
+  const config = await loadConfigFile(options.config);
+  if (root) {
+    config.root = path.join(cwd, root);
+  }
+  await build({
+    appDirectory: cwd,
+    docDirectory: config.root || path.join(cwd, root ?? 'docs'),
+    config,
+  });
+});
 
 cli.parse();
