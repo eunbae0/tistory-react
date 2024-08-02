@@ -10,11 +10,6 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./execa": {
-      "types": "./dist/execa.d.ts",
-      "import": "./dist/execa.mjs",
-      "require": "./dist/execa.js"
-    },
     "./chalk": {
       "types": "./dist/chalk.d.ts",
       "import": "./dist/chalk.mjs",
@@ -30,10 +25,10 @@
       "import": "./dist/logger.mjs",
       "require": "./dist/logger.js"
     },
-    "./node-utils": {
-      "types": "./dist/node-utils.d.ts",
-      "import": "./dist/node-utils.mjs",
-      "require": "./dist/node-utils.js"
+    "./globby": {
+      "types": "./dist/globby.d.ts",
+      "import": "./dist/globby.mjs",
+      "require": "./dist/globby.js"
     }
   },
   "scripts": {
@@ -51,7 +46,8 @@
   "dependencies": {
     "@rsbuild/core": "1.0.1-beta.2",
     "chalk": "^5.3.0",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "globby": "^14.0.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
