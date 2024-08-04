@@ -15,9 +15,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    },
-    "./server": {
-      "default": "./server.js"
     }
   },
   "scripts": {
