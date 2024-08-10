@@ -1,12 +1,15 @@
 import type { RsbuildConfig, RsbuildPlugin } from '@rsbuild/core';
 
+export interface Route {
+  pageName: string;
+  element: React.ReactElement;
+  filePath: string;
+}
+
 export interface RouteMeta {
-  routePath: string;
   absolutePath: string;
   relativePath: string;
   pageName: string;
-  lang: string;
-  version: string;
 }
 
 export interface ReplaceRule {
