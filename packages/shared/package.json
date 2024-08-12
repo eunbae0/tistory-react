@@ -52,6 +52,7 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.14.11",
+    "@types/react": "^18.3.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   }
