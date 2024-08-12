@@ -1,20 +1,7 @@
 import path from 'node:path';
 import { defineConfig, moduleTools } from '@modern-js/module-tools';
 
-// const COMMON_EXTERNALS = [
-//   'virtual-routes-ssr',
-//   'virtual-routes',
-//   '@theme',
-//   'virtual-search-index-hash',
-//   'virtual-site-data',
-//   'virtual-global-styles',
-//   'virtual-global-components',
-//   'virtual-search-hooks',
-//   '@/runtime',
-//   '@runtime',
-//   'virtual-i18n-text',
-//   'virtual-prism-languages',
-// ];
+const COMMON_EXTERNALS = ['virtual-routes-ssr', 'virtual-routes'];
 
 export default defineConfig({
   plugins: [moduleTools()],
@@ -29,7 +16,7 @@ export default defineConfig({
         respectExternal: true,
       },
       tsconfig: path.join(__dirname, 'tsconfig.json'),
-      // externals: COMMON_EXTERNALS,
+      externals: COMMON_EXTERNALS,
     },
   ],
 });
