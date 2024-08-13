@@ -42,7 +42,9 @@
     "enhanced-resolve": "^5.17.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-helmet-async": "^2.0.5"
+    "react-helmet-async": "^2.0.5",
+    "rspack-plugin-virtual-module": "^0.1.13",
+    "xml-js": "^1.6.11"
   },
   "keywords": [],
   "author": "",
@@ -50,6 +52,7 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.5"
   }
 }

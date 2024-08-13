@@ -6,5 +6,5 @@
     "jsx": "react-jsx",
     "esModuleInterop": true
   },
-  "include": ["./**/*"]
+  "include": ["./**/*", "../../../runtime/server.js"]
 }

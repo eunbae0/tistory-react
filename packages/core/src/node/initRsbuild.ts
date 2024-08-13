@@ -20,11 +20,10 @@ import {
   PUBLIC_DIR,
   DEFAULT_TITLE,
 } from './constants';
-// import { rsbuildPluginDocVM } from "./runtimeModule";
+import { initRouteService } from './route/init';
+import { rsbuildPluginDocVM } from './runtimeModule';
+import type { RouteService } from './route/RouteService';
 import { detectReactVersion, resolveReactAlias } from './utils';
-// import { initRouteService } from "./route/init";
-// import type { RouteService } from "./route/RouteService";
-// import { detectCustomIcon } from "./utils/detectCustomIcon";
 import { PLUGIN_REACT_NAME, pluginReact } from '@rsbuild/plugin-react';
 
 export interface MdxRsLoaderCallbackContext {
@@ -47,13 +46,11 @@ async function createInternalBuildConfig(
   userDocRoot: string,
   config: UserConfig,
   enableSSG: boolean,
-  // routeService: RouteService,
+  routeService: RouteService,
   // pluginDriver: PluginDriver,
-  // runtimeTempDir: string
+  runtimeTempDir: string,
 ): Promise<RsbuildConfig> {
   const cwd = process.cwd();
-  const CUSTOM_THEME_DIR =
-    config?.themeDir ?? path.join(process.cwd(), 'theme');
   const baseOutDir = config?.outDir ?? OUTPUT_DIR;
   const csrOutDir = baseOutDir;
   const ssrOutDir = path.join(baseOutDir, 'ssr');
@@ -90,7 +87,6 @@ async function createInternalBuildConfig(
   const ssrBrowserslist = ['node >= 14'];
 
   const [reactCSRAlias, reactSSRAlias] = await Promise.all([
-    // detectCustomIcon(CUSTOM_THEME_DIR),
     resolveReactAlias(reactVersion, false),
     enableSSG ? resolveReactAlias(reactVersion, true) : Promise.resolve({}),
   ]);
@@ -98,12 +94,12 @@ async function createInternalBuildConfig(
   return {
     plugins: [
       ...(isPluginIncluded(config, PLUGIN_REACT_NAME) ? [] : [pluginReact()]),
-      // rsbuildPluginDocVM({
-      //   userDocRoot,
-      //   config,
-      //   runtimeTempDir,
-      //   routeService,
-      // }),
+      rsbuildPluginDocVM({
+        userDocRoot,
+        config,
+        runtimeTempDir,
+        routeService,
+      }),
     ],
     server: {
       port:
@@ -136,16 +132,8 @@ async function createInternalBuildConfig(
     },
     source: {
       alias: {
-        // ...detectCustomIconAlias,
-        // '@mdx-js/react': require.resolve('@mdx-js/react'),
-        // "@theme": [CUSTOM_THEME_DIR, DEFAULT_THEME],
-        // "@/theme-default": DEFAULT_THEME,
         '@tistory-react/core': PACKAGE_ROOT,
         // 'react-lazy-with-preload': require.resolve('react-lazy-with-preload'),
-        // "react-syntax-highlighter": path.dirname(
-        // 	require.resolve("react-syntax-highlighter/package.json")
-        // ),
-        // "@theme-assets": path.join(DEFAULT_THEME, "../assets"),
       },
       include: [
         PACKAGE_ROOT,
@@ -175,51 +163,8 @@ async function createInternalBuildConfig(
       },
     },
     tools: {
-      bundlerChain(chain, { CHAIN_ID, target }) {
+      bundlerChain(chain, { target }) {
         const isServer = target === 'node';
-        // const jsModuleRule = chain.module.rule(CHAIN_ID.RULE.JS);
-
-        // const swcLoaderOptions = jsModuleRule
-        //   .use(CHAIN_ID.USE.SWC)
-        //   .get('options');
-
-        // chain.module
-        //   .rule('MDX')
-        //   .type('javascript/auto')
-        //   .test(MDX_REGEXP)
-        //   .resolve.merge({
-        //     conditionNames: jsModuleRule.resolve.conditionNames.values(),
-        //     mainFields: jsModuleRule.resolve.mainFields.values(),
-        //   })
-        //   .end()
-        //   .oneOf('MDXCompile')
-        //   .use('builtin:swc-loader')
-        //   .loader('builtin:swc-loader')
-        //   .options(swcLoaderOptions)
-        //   .end()
-        //   .use('mdx-loader')
-        //   .loader(require.resolve('../loader.cjs'))
-        //   .options({
-        //     config,
-        //     docDirectory: userDocRoot,
-        //     routeService,
-        //   })
-        //   .end();
-
-        // if (chain.plugins.has(CHAIN_ID.PLUGIN.REACT_FAST_REFRESH)) {
-        //   chain.plugin(CHAIN_ID.PLUGIN.REACT_FAST_REFRESH).tap(options => {
-        //     options[0] ??= {};
-        //     options[0].include = [/\.([cm]js|[jt]sx?|flow)$/i, MDX_REGEXP];
-        //     return options;
-        //   });
-        // }
-
-        // chain.resolve.extensions.prepend('.md').prepend('.mdx').prepend('.mjs');
-
-        // chain.module
-        //   .rule('css-virtual-module')
-        //   .test(/\.rspress[\\/]runtime[\\/]virtual-global-styles/)
-        //   .merge({ sideEffects: true });
 
         if (isServer) {
           chain.output.filename('main.cjs');
@@ -290,20 +235,19 @@ export async function initRsbuild(
   const runtimeAbsTempDir = path.join(cwd, 'node_modules', runtimeTempDir);
   await fs.ensureDir(runtimeAbsTempDir);
 
-  // const routeService = await initRouteService({
-  // 	config,
-  // 	runtimeTempDir: runtimeAbsTempDir,
-  // 	scanDir: userDocRoot,
-  // });
+  const routeService = await initRouteService({
+    config,
+    scanDir: userDocRoot,
+  });
   const { createRsbuild, mergeRsbuildConfig } = await import('@rsbuild/core');
 
   const internalRsbuildConfig = await createInternalBuildConfig(
     userDocRoot,
     config,
     enableSSG,
-    // routeService,
+    routeService,
     // pluginDriver,
-    // runtimeTempDir
+    runtimeTempDir,
   );
 
   const rsbuild = await createRsbuild({

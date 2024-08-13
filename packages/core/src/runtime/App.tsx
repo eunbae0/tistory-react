@@ -1,5 +1,9 @@
-import type { PropsWithChildren } from 'react';
+import { Content } from '@tistory-react/runtime';
 
-export function App({ children }: PropsWithChildren) {
-  return <div>{children}</div>;
+export function App() {
+  return (
+    <div>
+      <Content />
+    </div>
+  );
 }
