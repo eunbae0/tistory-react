@@ -1,3 +1,4 @@
+export * from './Content';
 export {
   useLocation,
   useNavigate,
