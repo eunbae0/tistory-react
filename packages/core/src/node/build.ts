@@ -135,7 +135,7 @@ export async function renderPages(
       );
     }
 
-    const fileName = 'tistory.html';
+    const fileName = 'skin.html';
     await fs.ensureDir(join(outputPath, dirname(fileName)));
     await fs.writeFile(join(outputPath, fileName), html);
 
