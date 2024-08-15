@@ -42,5 +42,10 @@
     "@types/react-dom": "^18.3.0",
     "typescript": "^5.5.3"
   },
-  "gitHead": "82e14daa327df38f86269c0d40e4fb0707dde6e0"
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
+  "gitHead": "bf01528568e03446edb0cd616579c50a2b8ffb3c"
 }
