@@ -47,12 +47,12 @@ export interface SSRBundleExports {
   render: () => Promise<{ appHtml: string }>;
 }
 
-export async function renderPages(
+export async function renderHtml(
   appDirectory: string,
   config: UserConfig,
   enableSSG: boolean,
 ) {
-  logger.info('Rendering pages...');
+  logger.info('Rendering html...');
   const startTime = Date.now();
   const outputPath = config?.outDir ?? join(appDirectory, OUTPUT_DIR);
   const ssrBundlePath = join(outputPath, 'ssr', 'main.cjs');
@@ -107,7 +107,7 @@ export async function renderPages(
       .replace(APP_HTML_MARKER, () => appHtml)
       .replace(
         META_GENERATOR,
-        () => `<meta name="generator" content="Rspress v${version}">`,
+        () => `<meta name="generator" content="Tistory-react v${version}">`,
       )
       .replace(
         HEAD_MARKER,
@@ -146,10 +146,36 @@ export async function renderPages(
     await fs.remove(join(outputPath, 'html'));
 
     const totalTime = Date.now() - startTime;
-    logger.success(`Pages rendered in ${chalk.yellow(totalTime)} ms.`);
+    logger.success(`HTML file rendered in ${chalk.yellow(totalTime)} ms.`);
   } catch (e) {
-    logger.error(`Pages render error: ${e.stack}`);
+    logger.error(`HTML file render error: ${e.stack}`);
     throw e;
+  }
+}
+
+export async function bundleXml(appDirectory: string, config: UserConfig) {
+  logger.info('Rendering pages...');
+  const startTime = Date.now();
+  const outputPath = config?.outDir ?? join(appDirectory, OUTPUT_DIR);
+  try {
+    const { default: fs } = await import('@tistory-react/shared/fs-extra');
+    const { js2xml } = await import('xml-js');
+    // const { version, description, author } = await import('../../package.json'); user package json
+
+    const skinInfo = {};
+    Object.assign(skinInfo, config.skinInfoConfig);
+    // skinInfo.version =
+    const options = { compact: true, ignoreComment: true, spaces: 4 };
+    const result = js2xml(skinInfo, options);
+
+    const fileName = 'index.xml';
+    await fs.ensureDir(join(outputPath, dirname(fileName)));
+    await fs.writeFile(join(outputPath, fileName), result);
+
+    const totalTime = Date.now() - startTime;
+    logger.success(`XML file bundled in ${chalk.yellow(totalTime)} ms.`);
+  } catch (error) {
+    logger.error(`XML file bundled error: ${error}`);
   }
 }
 
@@ -165,6 +191,7 @@ export async function build(options: BuildOptions) {
   await fs.emptyDir(TEMP_DIR);
 
   await bundle(docDirectory, config, enableSSG);
-  await renderPages(appDirectory, config, enableSSG);
+  await renderHtml(appDirectory, config, enableSSG);
+  await bundleXml(appDirectory, config);
   // await pluginDriver.afterBuild();
 }

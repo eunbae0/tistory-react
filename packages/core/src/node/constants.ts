@@ -1,6 +1,11 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { TISTORY_REACT_TEMP_DIR } from '@tistory-react/shared';
+import {
+  TISTORY_REACT_TEMP_DIR,
+  type TistorySkinAuthorConfig,
+  type TistorySkinDefaultConfig,
+  type TistorySkinInformationConfig,
+} from '@tistory-react/shared';
 
 export const isProduction = () => process.env.NODE_ENV === 'production';
 
@@ -42,3 +47,48 @@ export const TEMP_DIR = path.join(
   'node_modules',
   TISTORY_REACT_TEMP_DIR,
 );
+
+export const DEFAULT_TISTORY_SKIN_INFORMATION_CONFIG: TistorySkinInformationConfig =
+  {
+    name: '',
+    version: '',
+    description: '',
+    license: '',
+  };
+
+export const DEFAULT_TISTORY_SKIN_AUTHOR_CONFIG: TistorySkinAuthorConfig = {
+  name: '',
+  homepage: '',
+  email: '',
+};
+
+export const DEFAULT_TISTORY_SKIN_DEFAULT_CONFIG: TistorySkinDefaultConfig = {
+  recentEntries: 5,
+  recentComments: 5,
+  recentTrackbacks: 5,
+  itemsOnGuestbook: 10,
+  tagsInCloud: 30,
+  sortInCloud: 3,
+  expandComment: 0,
+  expandTrackback: 0,
+  lengthOfRecentNotice: 25,
+  lengthOfRecentEntry: 27,
+  lengthOfRecentComment: 30,
+  lengthOfRecentTrackback: 30,
+  lengthOfLink: 30,
+  showListOnCategory: 1,
+  showListLock: 1,
+  tree: {
+    color: '000000',
+    bgColor: 'ffffff',
+    activeColor: '000000',
+    activeBgColor: 'eeeeee',
+    labelLength: 27,
+    showValue: 1,
+  },
+  contentWidth: 0,
+};
+
+export const XML_DECLARATION = {
+  _declaration: { _attributes: { version: '1.0', encoding: 'utf-8' } },
+};
