@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/shared",
-  "version": "0.0.5-alpha.0",
+  "version": "0.0.6-alpha.0",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -58,8 +58,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "provenance": true,
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "bf01528568e03446edb0cd616579c50a2b8ffb3c"
+  "gitHead": "f33273526d68e3ba9e62e9162e350c35b891cea7"
 }
