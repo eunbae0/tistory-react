@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/runtime",
-  "version": "0.0.6-alpha.0",
+  "version": "0.0.7-alpha.0",
   "bugs": "https://github.com/eunbae0/tistory-react/issues",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "node": ">=14.17.6"
   },
   "dependencies": {
-    "@tistory-react/shared": "^0.0.6-alpha.0",
+    "@tistory-react/shared": "^0.0.7-alpha.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1"
@@ -46,5 +46,5 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "f33273526d68e3ba9e62e9162e350c35b891cea7"
+  "gitHead": "7b1d7620163727c374f8f51fda3369da3adedeb3"
 }

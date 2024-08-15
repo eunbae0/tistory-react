@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/core",
-  "version": "0.0.6-alpha.0",
+  "version": "0.0.7-alpha.0",
   "description": "Create Tistory Skin with React.js",
   "bugs": "https://github.com/eunbae0/tistory-react/issues",
   "repository": {
@@ -37,8 +37,8 @@
   "dependencies": {
     "@rsbuild/core": "1.0.1-beta.2",
     "@rsbuild/plugin-react": "1.0.1-beta.4",
-    "@tistory-react/runtime": "^0.0.6-alpha.0",
-    "@tistory-react/shared": "^0.0.6-alpha.0",
+    "@tistory-react/runtime": "^0.0.7-alpha.0",
+    "@tistory-react/shared": "^0.0.7-alpha.0",
     "enhanced-resolve": "^5.17.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -59,5 +59,5 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "f33273526d68e3ba9e62e9162e350c35b891cea7"
+  "gitHead": "7b1d7620163727c374f8f51fda3369da3adedeb3"
 }
