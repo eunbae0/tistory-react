@@ -1,4 +1,5 @@
 import type { RsbuildConfig, RsbuildPlugin } from '@rsbuild/core';
+import type { TistorySkinConfig } from './tistory';
 
 export interface Route {
   pageName: string;
@@ -68,4 +69,10 @@ export interface UserConfig {
    * Add some extra builder plugins
    */
   builderPlugins?: RsbuildPlugin[];
+  /**
+   * 스킨에 필요한 정보를 담고 있는 xml 파일의 설정
+   */
+  skinInfoConfig?: TistorySkinConfig;
 }
+
+export * from './tistory';
