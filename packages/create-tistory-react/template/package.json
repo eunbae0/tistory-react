@@ -1,0 +1,16 @@
+{
+  "name": "tistory-react-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tistory-react dev",
+    "build": "tistory-react build",
+    "preview": "tistory-react preview"
+  },
+  "dependencies": {
+    "tistory-react": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16"
+  }
+}
