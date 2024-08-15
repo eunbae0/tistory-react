@@ -1,6 +1,6 @@
 {
   "name": "create-tistory-react",
-  "version": "0.0.3-alpha.0",
+  "version": "0.0.4-alpha.0",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -43,5 +43,6 @@
   "files": [
     "dist",
     "template"
-  ]
+  ],
+  "gitHead": "82e14daa327df38f86269c0d40e4fb0707dde6e0"
 }

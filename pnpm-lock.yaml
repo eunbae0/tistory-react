@@ -30,10 +30,10 @@ importers:
         specifier: 1.0.1-beta.2
         version: 1.0.1-beta.2
       '@tistory-react/core':
-        specifier: workspace:*
+        specifier: ^0.0.4-alpha.0
         version: link:../core
       '@tistory-react/shared':
-        specifier: workspace:*
+        specifier: ^0.0.4-alpha.0
         version: link:../shared
       cac:
         specifier: ^6.7.14
@@ -61,10 +61,10 @@ importers:
         specifier: 1.0.1-beta.4
         version: 1.0.1-beta.4(@rsbuild/core@1.0.1-beta.2)
       '@tistory-react/runtime':
-        specifier: workspace:*
+        specifier: ^0.0.4-alpha.0
         version: link:../runtime
       '@tistory-react/shared':
-        specifier: workspace:*
+        specifier: ^0.0.4-alpha.0
         version: link:../shared
       enhanced-resolve:
         specifier: ^5.17.0
@@ -140,7 +140,7 @@ importers:
   packages/runtime:
     dependencies:
       '@tistory-react/shared':
-        specifier: workspace:*
+        specifier: ^0.0.4-alpha.0
         version: link:../shared
       react:
         specifier: ^18.3.1
