@@ -2,7 +2,7 @@
 
   # tistory-react 
 
-  A fast tistory skin builder with React.js.
+  A fast tistory skin framework with React.js.
 </div>
 
 ## Features
