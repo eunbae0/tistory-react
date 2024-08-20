@@ -1,8 +1,8 @@
 {
-  "name": "tistory-react-template-ts",
+  "name": "tistory-react-example-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/Layout.js",
   "type": "module",
   "scripts": {
     "dev": "tistory-react dev",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/eunbae0/tistory-react",
-    "directory": "packages/create-tistory-react/templates/ts"
+    "directory": "examples/ts"
   },
   "dependencies": {
     "react": "^18.3.1",
