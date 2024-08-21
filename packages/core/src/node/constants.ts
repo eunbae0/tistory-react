@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   TISTORY_REACT_TEMP_DIR,
+  type TistorySkinConfig,
   type TistorySkinAuthorConfig,
   type TistorySkinDefaultConfig,
   type TistorySkinInformationConfig,
@@ -32,6 +33,7 @@ export const SSR_ENTRY = path.join(
 );
 
 export const OUTPUT_DIR = 'doc_build';
+export const BUNDLE_DIR = 'images';
 
 export const APP_HTML_MARKER = '<!--<?- DOC_CONTENT ?>-->';
 export const HEAD_MARKER = '<!--<?- HEAD ?>-->';
@@ -39,7 +41,7 @@ export const META_GENERATOR = '<!--<?- GENERATOR ?>-->';
 export const HTML_START_TAG = '<html';
 export const BODY_START_TAG = '<body';
 
-export const DEFAULT_TITLE = 'Rspress';
+export const DEFAULT_TITLE = '[##_page_title_##]';
 
 export const PUBLIC_DIR = 'public';
 export const TEMP_DIR = path.join(
@@ -87,6 +89,12 @@ export const DEFAULT_TISTORY_SKIN_DEFAULT_CONFIG: TistorySkinDefaultConfig = {
     showValue: 1,
   },
   contentWidth: 0,
+};
+
+export const DEFAULT_TISTORY_SKIN_CONFIG: TistorySkinConfig = {
+  information: DEFAULT_TISTORY_SKIN_INFORMATION_CONFIG,
+  author: DEFAULT_TISTORY_SKIN_AUTHOR_CONFIG,
+  default: DEFAULT_TISTORY_SKIN_DEFAULT_CONFIG,
 };
 
 export const XML_DECLARATION = {

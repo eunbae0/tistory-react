@@ -19,6 +19,7 @@ import {
   isProduction,
   PUBLIC_DIR,
   DEFAULT_TITLE,
+  BUNDLE_DIR,
 } from './constants';
 import { initRouteService } from './route/init';
 import { rsbuildPluginDocVM } from './runtimeModule';
@@ -128,7 +129,10 @@ async function createInternalBuildConfig(
       distPath: {
         // just for rsbuild preview
         root: csrOutDir,
+        js: BUNDLE_DIR,
+        jsAsync: BUNDLE_DIR,
       },
+      legalComments: 'none',
     },
     source: {
       alias: {
