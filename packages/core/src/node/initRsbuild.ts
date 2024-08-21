@@ -118,7 +118,7 @@ async function createInternalBuildConfig(
       // Serve static files
     },
     html: {
-      title: config?.title ?? DEFAULT_TITLE,
+      title: DEFAULT_TITLE,
       favicon: normalizeIcon(config?.icon),
       template: path.join(PACKAGE_ROOT, 'index.html'),
       // tags:

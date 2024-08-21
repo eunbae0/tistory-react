@@ -24,14 +24,6 @@ export interface UserConfig {
    */
   root?: string;
   /**
-   * Path to the logo file in nav bar.
-   */
-  logo?: string | { dark: string; light: string };
-  /**
-   * The text of the logo in nav bar.
-   */
-  logoText?: string;
-  /**
    * Base path of the site.
    */
   base?: string;
@@ -40,13 +32,28 @@ export interface UserConfig {
    */
   icon?: string;
   /**
-   * Title of the site.
+   * Language of html tag.
+   * @default
+   * lang="ko"
    */
-  title?: string;
+  lang?: string;
   /**
-   * Description of the site.
+   * Custom html meta tag.
    */
-  description?: string;
+  meta?: {
+    /**
+     * Title of the site.
+     * @default
+     * [##_page_title_##] :: [##_title_##]
+     */
+    title?: string;
+    /**
+     * Description of the site.
+     * @default
+     * [##_desc_##]
+     */
+    description?: string;
+  };
   /**
    * Head tags.
    */

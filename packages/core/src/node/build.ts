@@ -13,8 +13,12 @@ import {
   HTML_START_TAG,
   BODY_START_TAG,
   TEMP_DIR,
+  DEFAULT_TISTORY_SKIN_CONFIG,
+  XML_DECLARATION,
 } from './constants';
 import { initRsbuild } from './initRsbuild';
+import { convertCdataObj } from './utils/convertXml';
+import type { TistorySkinInfo } from './types';
 
 export interface Route {
   path: string;
@@ -98,12 +102,7 @@ export async function renderHtml(
       }
     }
 
-    const { helmet } = helmetContext.context;
-    let html = htmlTemplate
-      // During ssr, we already have the title in react-helmet
-      .replace(/<title>(.*?)<\/title>/gi, '')
-      // Don't use `string` as second param
-      // To avoid some special characters transformed to the marker, such as `$&`, etc.
+    const html = htmlTemplate
       .replace(APP_HTML_MARKER, () => appHtml)
       .replace(
         META_GENERATOR,
@@ -112,28 +111,22 @@ export async function renderHtml(
       .replace(
         HEAD_MARKER,
         [
-          // await renderConfigHead(config, route),
-          helmet?.title?.toString(),
-          helmet?.meta?.toString(),
-          helmet?.link?.toString(),
-          helmet?.style?.toString(),
-          helmet?.script?.toString(),
-          // await renderFrontmatterHead(route),
+          `<meta name="title" content="${config.meta?.title ?? '[##_page_title_##] :: [##_title_##]'}" />`,
+          `<meta name="description" content="${config.meta?.description ?? '[##_desc_##]'}" />`,
+          `<link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />`,
         ].join(''),
-      );
-    if (helmet?.htmlAttributes) {
-      html = html.replace(
+      )
+      .replace(
         HTML_START_TAG,
-        `${HTML_START_TAG} ${helmet?.htmlAttributes?.toString()}`,
+        `${HTML_START_TAG} lang="${config.lang ?? 'ko'}"`,
       );
-    }
 
-    if (helmet?.bodyAttributes) {
-      html = html.replace(
-        BODY_START_TAG,
-        `${BODY_START_TAG} ${helmet?.bodyAttributes?.toString()}`,
-      );
-    }
+    // if (helmet?.bodyAttributes) {
+    //   html = html.replace(
+    //     BODY_START_TAG,
+    //     `${}`,
+    //   );
+    // }
 
     const fileName = 'skin.html';
     await fs.ensureDir(join(outputPath, dirname(fileName)));
@@ -144,6 +137,7 @@ export async function renderHtml(
       await fs.remove(join(outputPath, 'ssr'));
     }
     await fs.remove(join(outputPath, 'html'));
+    await fs.remove(htmlTemplatePath);
 
     const totalTime = Date.now() - startTime;
     logger.success(`HTML file rendered in ${chalk.yellow(totalTime)} ms.`);
@@ -154,7 +148,7 @@ export async function renderHtml(
 }
 
 export async function bundleXml(appDirectory: string, config: UserConfig) {
-  logger.info('Rendering pages...');
+  logger.info('bundling XML...');
   const startTime = Date.now();
   const outputPath = config?.outDir ?? join(appDirectory, OUTPUT_DIR);
   try {
@@ -162,9 +156,18 @@ export async function bundleXml(appDirectory: string, config: UserConfig) {
     const { js2xml } = await import('xml-js');
     // const { version, description, author } = await import('../../package.json'); user package json
 
-    const skinInfo = {};
-    Object.assign(skinInfo, config.skinInfoConfig);
-    // skinInfo.version =
+    const skinInfo: TistorySkinInfo = {
+      ...XML_DECLARATION,
+      skin: DEFAULT_TISTORY_SKIN_CONFIG,
+    };
+    skinInfo.skin = Object.assign(skinInfo.skin, config.skinInfoConfig);
+    skinInfo.skin.information.description = convertCdataObj(
+      skinInfo.skin.information.description as string,
+    );
+    skinInfo.skin.information.license = convertCdataObj(
+      skinInfo.skin.information.license as string,
+    );
+
     const options = { compact: true, ignoreComment: true, spaces: 4 };
     const result = js2xml(skinInfo, options);
 
@@ -175,7 +178,7 @@ export async function bundleXml(appDirectory: string, config: UserConfig) {
     const totalTime = Date.now() - startTime;
     logger.success(`XML file bundled in ${chalk.yellow(totalTime)} ms.`);
   } catch (error) {
-    logger.error(`XML file bundled error: ${error}`);
+    logger.error(`XML bundled error: ${error}`);
   }
 }
 
