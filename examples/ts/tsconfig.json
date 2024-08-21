@@ -6,7 +6,7 @@
     "moduleResolution": "Bundler",
   },
   "include": [
-    "./rspress.config.ts",
+    "./tistory-react.config.ts",
     "src/**/*",
   ],
 }

@@ -11,7 +11,7 @@
       "*.d.ts",
       "dist-*/**/*",
       "compiled/**/*",
-      "create-rspress/template/rspress.config.ts"
+      "create-tistory-react/template/tistory-react.config.ts"
     ],
     "include": [
       "packages/**/*.ts",
