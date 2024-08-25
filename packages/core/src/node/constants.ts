@@ -32,7 +32,7 @@ export const SSR_ENTRY = path.join(
   'ssrEntry.js',
 );
 
-export const OUTPUT_DIR = 'doc_build';
+export const OUTPUT_DIR = 'build';
 export const BUNDLE_DIR = 'images';
 
 export const APP_HTML_MARKER = '<!--<?- DOC_CONTENT ?>-->';
