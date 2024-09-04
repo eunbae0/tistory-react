@@ -51,6 +51,7 @@ export const TEMP_DIR = path.join(
 );
 
 export const TEMP_ONCLICK_ATTR = 'data-onclick';
+export const TEMP_ONKEYPRESS_ATTR = 'data-onkeypress';
 
 export const DEFAULT_TISTORY_SKIN_INFORMATION_CONFIG: TistorySkinInformationConfig =
   {

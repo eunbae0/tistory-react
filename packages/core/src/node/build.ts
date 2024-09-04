@@ -15,6 +15,7 @@ import {
   DEFAULT_TISTORY_SKIN_CONFIG,
   XML_DECLARATION,
   TEMP_ONCLICK_ATTR,
+  TEMP_ONKEYPRESS_ATTR,
 } from './constants';
 import { initRsbuild } from './initRsbuild';
 import { convertCdataObj } from './utils/convertXml';
@@ -120,7 +121,8 @@ export async function renderHtml(
         HTML_START_TAG,
         `${HTML_START_TAG} lang="${config.lang ?? 'ko'}"`,
       )
-      .replaceAll(TEMP_ONCLICK_ATTR, 'onclick');
+      .replaceAll(TEMP_ONCLICK_ATTR, 'onclick')
+      .replaceAll(TEMP_ONKEYPRESS_ATTR, 'onkeypress');
 
     // if (helmet?.bodyAttributes) {
     //   html = html.replace(
