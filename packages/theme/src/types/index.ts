@@ -39,6 +39,8 @@ export type RepTextareaProps = Omit<
 
 export type RepSpanProps = HTMLAttributes<HTMLSpanElement>;
 
+export type RepSectionProps = HTMLAttributes<HTMLElement>;
+
 export { PropsWithChildren } from 'react';
 
 export * from './jsx';
