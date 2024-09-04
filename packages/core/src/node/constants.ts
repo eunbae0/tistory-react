@@ -50,6 +50,8 @@ export const TEMP_DIR = path.join(
   TISTORY_REACT_TEMP_DIR,
 );
 
+export const TEMP_ONCLICK_ATTR = 'data-onclick';
+
 export const DEFAULT_TISTORY_SKIN_INFORMATION_CONFIG: TistorySkinInformationConfig =
   {
     name: '',

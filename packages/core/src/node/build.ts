@@ -11,10 +11,10 @@ import {
   HEAD_MARKER,
   META_GENERATOR,
   HTML_START_TAG,
-  BODY_START_TAG,
   TEMP_DIR,
   DEFAULT_TISTORY_SKIN_CONFIG,
   XML_DECLARATION,
+  TEMP_ONCLICK_ATTR,
 } from './constants';
 import { initRsbuild } from './initRsbuild';
 import { convertCdataObj } from './utils/convertXml';
@@ -119,7 +119,8 @@ export async function renderHtml(
       .replace(
         HTML_START_TAG,
         `${HTML_START_TAG} lang="${config.lang ?? 'ko'}"`,
-      );
+      )
+      .replaceAll(TEMP_ONCLICK_ATTR, 'onclick');
 
     // if (helmet?.bodyAttributes) {
     //   html = html.replace(
