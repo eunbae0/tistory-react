@@ -1,0 +1,24 @@
+{
+  "name": "@tistory-react/eslint-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node src/tests/tistory-react-eslint-plugin.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/eslint": "^9.6.1",
+    "@types/estree": "^1.0.5",
+    "@types/jsx-ast-utils": "^3.3.1",
+    "@typescript-eslint/utils": "^8.4.0",
+    "eslint": "^9.9.1"
+  },
+  "dependencies": {
+    "eslint-plugin-react": "^7.35.2",
+    "jsx-ast-utils": "^3.3.5"
+  }
+}
