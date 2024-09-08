@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node src/tests/tistory-react-eslint-plugin.test.ts"
+    "test": "mocha src/**/*.test.ts",
+    "coverage": "nyc pnpm run test"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +15,12 @@
     "@types/eslint": "^9.6.1",
     "@types/estree": "^1.0.5",
     "@types/jsx-ast-utils": "^3.3.1",
+    "@types/mocha": "^10.0.7",
     "@typescript-eslint/utils": "^8.4.0",
-    "eslint": "^9.9.1"
+    "eslint": "^9.9.1",
+    "mocha": "^10.7.3",
+    "nyc": "^17.0.0",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
     "eslint-plugin-react": "^7.35.2",

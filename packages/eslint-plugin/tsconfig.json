@@ -1,0 +1,17 @@
+{
+  "extends": "@modern-js/tsconfig/base",
+  "compilerOptions": {
+    "declaration": false,
+    "strict": false,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "baseUrl": "src",
+    "rootDir": ".",
+    "esModuleInterop": true,
+  },
+  "include": [
+    "src",
+    "./index.ts",
+  ],
+  "exclude": ["node_modules"]
+}
