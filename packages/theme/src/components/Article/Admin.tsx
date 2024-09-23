@@ -58,9 +58,9 @@ export const AdminDeleteLink = (props: RepAnchorProps) => {
 /**
  * 글의 현재 상태
  */
-export const ADMIM_CURRENT_STATE = '[##_s_ad_s1_label_##]';
+export const ADMIN_CURRENT_STATE = '[##_s_ad_s1_label_##]';
 
 /**
  * 글의 이후 상태
  */
-export const ADMIM_NEXT_STATE = '[##_s_ad_s2_label_##]';
+export const ADMIN_NEXT_STATE = '[##_s_ad_s2_label_##]';
