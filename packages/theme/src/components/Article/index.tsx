@@ -79,9 +79,17 @@ const Thumbnail = ({ children }: PropsWithChildren) => {
   return <s_article_rep_thumbnail>{children}</s_article_rep_thumbnail>;
 };
 
+Thumbnail.parent = 'Article';
+Thumbnail.childVariables = [
+  'ARTICLE_THUMBNAIL_URL',
+  'ARTICLE_THUMBNAIL_RAW_URL',
+];
+
 const ThumbnailImg = (props: RepImgProps) => {
   return <img src={ARTICLE_THUMBNAIL_URL} alt="Article Thumbnail" {...props} />;
 };
+
+ThumbnailImg.parent = 'Thumbnail';
 
 /**
  * 댓글의 갯수를 출력하는 영역
@@ -89,6 +97,8 @@ const ThumbnailImg = (props: RepImgProps) => {
 const CommentCount = ({ children }: PropsWithChildren) => {
   return <s_rp_count>{children}</s_rp_count>;
 };
+
+CommentCount.childVariables = ['ARTICLE_COMMENT_COUNT'];
 
 /**
  * 블로그 글의 제목
@@ -197,7 +207,22 @@ Article.NextLink = NextLink;
 Article.NextThumbNail = NextThumbNail;
 Article.NextThumbNailImg = NextThumbNailImg;
 
-export { ADMIM_CURRENT_STATE, ADMIM_NEXT_STATE } from './Admin';
+Article.childVariables = [
+  'ARTICLE_TITLE',
+  'ARTICLE_CATEGORY',
+  'ARTICLE_AUTHOR',
+  'ARTICLE_DATE',
+  'ARTICLE_DATE_DAY',
+  'ARTICLE_DATE_HOUR',
+  'ARTICLE_DATE_MINUTE',
+  'ARTICLE_DATE_MONTH',
+  'ARTICLE_DATE_SECOND',
+  'ARTICLE_DATE_YEAR',
+  'ARTICLE_DESCRIPTION',
+  'ARTICLE_SIMPLE_DATE',
+];
+
+export { ADMIN_CURRENT_STATE, ADMIN_NEXT_STATE } from './Admin';
 export { TAG_LABEL } from './Tag';
 export {
   RELATED_ARTICLE_TYPE,
