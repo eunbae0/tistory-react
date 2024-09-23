@@ -2,13 +2,20 @@
   "name": "@tistory-react/eslint-plugin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "type": "module",
   "scripts": {
+    "build": "modern build",
     "test": "mocha src/**/*.test.ts",
     "coverage": "nyc pnpm run test"
   },
-  "keywords": [],
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
