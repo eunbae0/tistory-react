@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/theme-default",
-  "version": "1.0.0",
+  "version": "0.0.8-alpha.0",
   "description": "The Default Theme of Tistory-react Framework, Provide Tistory Components",
   "bugs": "https://github.com/eunbae0/tistory-react/issues",
   "repository": {
@@ -32,8 +32,8 @@
     "node": ">=14.17.6"
   },
   "dependencies": {
-    "@tistory-react/runtime": "^0.0.7-alpha.0",
-    "@tistory-react/shared": "^0.0.7-alpha.0",
+    "@tistory-react/runtime": "^0.0.8-alpha.0",
+    "@tistory-react/shared": "^0.0.8-alpha.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
