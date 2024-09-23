@@ -170,6 +170,9 @@ importers:
 
   packages/eslint-plugin:
     dependencies:
+      '@tistory-react/theme-default':
+        specifier: workspace:*
+        version: link:../theme
       eslint-plugin-react:
         specifier: ^7.35.2
         version: 7.35.2(eslint@9.9.1)
@@ -180,7 +183,7 @@ importers:
       '@types/eslint':
         specifier: ^9.6.1
         version: 9.6.1
-      '@types/estree':
+      '@types/estree-jsx':
         specifier: ^1.0.5
         version: 1.0.5
       '@types/jsx-ast-utils':

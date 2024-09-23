@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/eslint": "^9.6.1",
-    "@types/estree": "^1.0.5",
+    "@types/estree-jsx": "^1.0.5",
     "@types/jsx-ast-utils": "^3.3.1",
     "@types/mocha": "^10.0.7",
     "@typescript-eslint/utils": "^8.4.0",
@@ -23,6 +23,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
+    "@tistory-react/theme-default": "workspace:*",
     "eslint-plugin-react": "^7.35.2",
     "jsx-ast-utils": "^3.3.5"
   }
