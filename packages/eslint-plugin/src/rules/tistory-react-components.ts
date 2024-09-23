@@ -79,7 +79,6 @@ export const tistoryReactComponentsRule: Rule.RuleModule = {
                 );
             }),
         );
-        console.log(tistoryComponentParentsMap);
         jsxElements.forEach(node => {
           const openingEl = node.openingElement;
           const elName = elementType(openingEl);
