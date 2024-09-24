@@ -26,6 +26,9 @@ importers:
 
   examples/ts:
     dependencies:
+      eslint-plugin-tistory-react:
+        specifier: workspace:0.0.8-alpha.0
+        version: link:../../packages/eslint-plugin
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -70,13 +73,13 @@ importers:
         specifier: ^0.0.8-alpha.0
         version: link:../core
       '@tistory-react/runtime':
-        specifier: workspace:*
+        specifier: 0.0.8-alpha.0
         version: link:../runtime
       '@tistory-react/shared':
         specifier: ^0.0.8-alpha.0
         version: link:../shared
       '@tistory-react/theme-default':
-        specifier: workspace:*
+        specifier: 0.0.8-alpha.0
         version: link:../theme
       cac:
         specifier: ^6.7.14
@@ -110,7 +113,7 @@ importers:
         specifier: ^0.0.8-alpha.0
         version: link:../shared
       '@tistory-react/theme-default':
-        specifier: workspace:*
+        specifier: 0.0.8-alpha.0
         version: link:../theme
       enhanced-resolve:
         specifier: ^5.17.0
@@ -186,7 +189,7 @@ importers:
   packages/eslint-plugin:
     dependencies:
       '@tistory-react/theme-default':
-        specifier: workspace:*
+        specifier: 0.0.8-alpha.0
         version: link:../theme
       eslint-plugin-react:
         specifier: ^7.35.2

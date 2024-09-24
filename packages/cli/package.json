@@ -42,9 +42,9 @@
   "dependencies": {
     "@rsbuild/core": "1.0.1-beta.2",
     "@tistory-react/core": "^0.0.8-alpha.0",
-    "@tistory-react/runtime": "workspace:*",
+    "@tistory-react/runtime": "0.0.8-alpha.0",
     "@tistory-react/shared": "^0.0.8-alpha.0",
-    "@tistory-react/theme-default": "workspace:*",
+    "@tistory-react/theme-default": "0.0.8-alpha.0",
     "cac": "^6.7.14",
     "chalk": "^5.3.0",
     "chokidar": "^3.6.0"
@@ -57,5 +57,5 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "7b1d7620163727c374f8f51fda3369da3adedeb3"
+  "gitHead": "5955246c00aab7a0e66bc7c7626f8eef2114d96a"
 }
