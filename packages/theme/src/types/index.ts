@@ -29,7 +29,7 @@ export type RepInputProps = Omit<
 
 export type RepImgProps = Omit<
   ImgHTMLAttributes<HTMLImageElement>,
-  'href' | 'onClick'
+  'href' | 'onClick' | 'children' // img is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`
 >;
 
 export type RepTextareaProps = Omit<
