@@ -88,9 +88,6 @@ export async function renderHtml(
     const htmlTemplatePath = join(outputPath, 'index.html');
     const htmlTemplate = await fs.readFile(htmlTemplatePath, 'utf-8');
 
-    const helmetContext: HelmetData = {
-      context: {},
-    } as HelmetData;
     let appHtml = '';
     if (render) {
       try {
