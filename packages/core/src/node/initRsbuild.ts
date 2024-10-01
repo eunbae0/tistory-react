@@ -137,7 +137,6 @@ async function createInternalBuildConfig(
     source: {
       alias: {
         '@tistory-react/core': PACKAGE_ROOT,
-        // 'react-lazy-with-preload': require.resolve('react-lazy-with-preload'),
       },
       include: [
         PACKAGE_ROOT,
@@ -169,6 +168,7 @@ async function createInternalBuildConfig(
     tools: {
       bundlerChain(chain, { target }) {
         const isServer = target === 'node';
+        console.log('::', isServer);
 
         if (isServer) {
           chain.output.filename('main.cjs');

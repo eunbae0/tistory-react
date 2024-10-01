@@ -77,30 +77,22 @@ export class RouteService {
     return this.routeData.size === 0;
   }
 
-  generateRoutesCode(isStaticImport = false) {
-    return this.generateRoutesCodeByRouteMeta(this.getRoutes(), isStaticImport);
+  generateRoutesCode() {
+    return this.generateRoutesCodeByRouteMeta(this.getRoutes());
   }
 
-  generateRoutesCodeByRouteMeta(
-    routeMeta: RouteMeta[],
-    isStaticImport: boolean,
-  ) {
+  generateRoutesCodeByRouteMeta(routeMeta: RouteMeta[]) {
     return `
 import React from 'react';
-import { lazyWithPreload } from "react-lazy-with-preload";
 ${routeMeta
   .map((route, index) => {
-    return isStaticImport
-      ? `import * as Route${index} from '${route.absolutePath}';`
-      : `const Route${index} = lazyWithPreload(() => import('${route.absolutePath}'))`;
+    return `import * as Route${index} from '${route.absolutePath}';`;
   })
   .join('\n')}
 export const routes = [
 ${routeMeta
   .map((route, index) => {
-    const component = isStaticImport
-      ? `Route${index}.default`
-      : `Route${index}`;
+    const component = `Route${index}.default`;
     /**
      * For SSR, example:
      * {

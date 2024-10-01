@@ -73,10 +73,6 @@ export function rsbuildPluginDocVM(
 
 export enum RuntimeModuleID {
   RouteForClient = 'virtual-routes',
-  RouteForSSR = 'virtual-routes-ssr',
 }
 
-export const runtimeModuleIDs = [
-  RuntimeModuleID.RouteForClient,
-  RuntimeModuleID.RouteForSSR,
-];
+export const runtimeModuleIDs = [RuntimeModuleID.RouteForClient];
