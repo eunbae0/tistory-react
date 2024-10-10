@@ -1,6 +1,5 @@
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import type { HelmetData } from 'react-helmet-async';
 import chalk from '@tistory-react/shared/chalk';
 import fs from '@tistory-react/shared/fs-extra';
 import { type UserConfig, isDebugMode } from '@tistory-react/shared';
@@ -20,6 +19,7 @@ import {
 import { initRsbuild } from './initRsbuild';
 import { convertCdataObj } from './utils/convertXml';
 import type { TistorySkinInfo } from './types';
+import { mergeXmlConfig } from './utils/mergeXmlConfig';
 
 export interface Route {
   path: string;
@@ -155,12 +155,14 @@ export async function bundleXml(appDirectory: string, config: UserConfig) {
     const { default: fs } = await import('@tistory-react/shared/fs-extra');
     const { js2xml } = await import('xml-js');
     // const { version, description, author } = await import('../../package.json'); user package json
-
     const skinInfo: TistorySkinInfo = {
       ...XML_DECLARATION,
-      skin: DEFAULT_TISTORY_SKIN_CONFIG,
+      skin: mergeXmlConfig(
+        DEFAULT_TISTORY_SKIN_CONFIG,
+        config.skinInfoConfig ?? {},
+      ),
     };
-    skinInfo.skin = Object.assign(skinInfo.skin, config.skinInfoConfig);
+
     skinInfo.skin.information.description = convertCdataObj(
       skinInfo.skin.information.description as string,
     );
