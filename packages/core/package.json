@@ -40,6 +40,7 @@
     "@tistory-react/runtime": "^0.0.8-alpha.0",
     "@tistory-react/shared": "^0.0.8-alpha.0",
     "@tistory-react/theme-default": "0.0.8-alpha.0",
+    "deepmerge": "^4.3.1",
     "enhanced-resolve": "^5.17.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
