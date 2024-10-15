@@ -1,17 +1,18 @@
 import { rules } from './rules';
+import type { FlatConfig } from './types';
 
-const plugin = {
+const plugin: FlatConfig = {
   name: 'tistory-react-eslint-plugin',
   rules,
-  configs: {
-    recommended: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-  },
 };
 
 export default plugin;
+
+plugin.configs.flat = {
+  recommended: {
+    plugins: { tistory: plugin },
+    rules: {
+      'tistory/tistory-react-components': 'error',
+    },
+  },
+};
