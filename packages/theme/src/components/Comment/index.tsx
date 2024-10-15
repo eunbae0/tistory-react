@@ -17,7 +17,7 @@ import {
   Reply,
   Name,
   Logo,
-  Date,
+  Date as ListDate,
   AddressLink,
   DeleteLink,
   WriteReplyLink,
@@ -58,7 +58,7 @@ Comment.ReplyWrapper = ReplyWrapper;
 Comment.Reply = Reply;
 Comment.Name = Name;
 Comment.Logo = Logo;
-Comment.Date = Date;
+Comment.Date = ListDate;
 Comment.AddressLink = AddressLink;
 Comment.DeleteLink = DeleteLink;
 Comment.WriteReplyLink = WriteReplyLink;
