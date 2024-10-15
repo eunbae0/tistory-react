@@ -20,6 +20,22 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./Article": {
+      "types": "./dist/Article/index.d.ts",
+      "default": "./dist/Article/index.js"
+    },
+    "./Comment": {
+      "types": "./dist/Comment/index.d.ts",
+      "default": "./dist/Comment/index.js"
+    },
+    "./Sidebar": {
+      "types": "./dist/Sidebar/index.d.ts",
+      "default": "./dist/Sidebar/index.js"
+    },
+    "./Tags": {
+      "types": "./dist/Tags/index.d.ts",
+      "default": "./dist/Tags/index.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
