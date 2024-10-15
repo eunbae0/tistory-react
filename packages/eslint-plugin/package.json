@@ -1,5 +1,5 @@
 {
-  "name": "@tistory-react/eslint-plugin",
+  "name": "@tistory-react/eslint-plugin-tistory",
   "version": "0.0.8-alpha.0",
   "description": "",
   "types": "./dist/index.d.ts",
@@ -30,8 +30,16 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "@tistory-react/theme-default": "workspace:*",
+    "@tistory-react/theme-default": "0.0.8-alpha.0",
     "eslint-plugin-react": "^7.35.2",
     "jsx-ast-utils": "^3.3.5"
-  }
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "gitHead": "5955246c00aab7a0e66bc7c7626f8eef2114d96a"
 }
