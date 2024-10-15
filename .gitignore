@@ -3,3 +3,6 @@ node_modules/
 docs/.next
 
 lerna-debug.log
+
+# VSCode
+**/.DS_Store
