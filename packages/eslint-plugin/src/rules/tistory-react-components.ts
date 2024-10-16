@@ -1,21 +1,21 @@
 import type { Rule } from 'eslint';
-import elementType from 'jsx-ast-utils/elementType';
+import jsxAstUtils from 'jsx-ast-utils';
 
 import { report } from '../utils/report';
-import { tistoryComponents } from '../constants';
-
-import * as Theme from '@tistory-react/theme-default';
+import { TISTORY_REACT_THEME, tistoryComponentNames } from '../constants';
+import type { TistoryComponentsEnum } from '../types/tistory';
+import { getTistoryComponent } from '../utils/getTistoryComponent';
 
 const messages = {
   tistoryComponent: '<{{el}}> requires <{{parentEl}}> as parent component.',
 };
 
-function hasTistoryParentEl(node, shouldParentElName: string) {
+function hasParentComponent(node, targetParentElName: string) {
   let parentNode = node.parent;
   while (parentNode.type === 'JSXElement') {
-    const parentElName = elementType(parentNode.openingElement);
+    const parentElName = jsxAstUtils.elementType(parentNode.openingElement);
 
-    if (parentElName === shouldParentElName) return true;
+    if (parentElName === targetParentElName) return true;
     parentNode = parentNode.parent;
   }
   return false;
@@ -36,65 +36,74 @@ export const tistoryReactComponentsRule: Rule.RuleModule = {
   create(context) {
     const jsxElements: any[] = [];
 
+    const importTistoryComponents = new Set<string>();
+    /**
+     * @example ```
+     * import {Article as AliasArticle} from 'tistory-react/theme/Article'
+     * // Map(['AliasArticle', 'Article'])
+     * ```
+     */
     const aliasImport = new Map<string, string>([]);
-    const tistoryComponentParentsMap = new Map<string, string>();
 
     return {
       JSXElement(node: any) {
         jsxElements.push(node);
       },
       ImportDeclaration(node: any) {
-        if (node.source && node.source.value === 'tistory-react/theme') {
+        if (node.source?.value.includes(TISTORY_REACT_THEME)) {
           node.specifiers.forEach(spec => {
             if (
               spec.imported &&
-              tistoryComponents.indexOf(spec.imported.name) > -1
+              tistoryComponentNames.indexOf(spec.imported.name) > -1
             ) {
               if (spec.imported.name !== spec.local.name) {
-                aliasImport.set(spec.imported.name, spec.local.name);
+                aliasImport.set(spec.local.name, spec.imported.name);
               }
+              importTistoryComponents.add(spec.local.name);
             }
           });
         }
       },
       'Program:exit'() {
-        tistoryComponents.forEach(component =>
-          Object.keys(Theme[component])
-            .filter(key => 'parent' in Theme[component][key])
-            .forEach(key => {
-              const rootComponent = aliasImport.has(component)
-                ? aliasImport.get(component)
-                : component;
-
-              // Case: parent is root component
-              if (Theme[component][key].parent === component) {
-                tistoryComponentParentsMap.set(
-                  `${rootComponent}.${key}`,
-                  rootComponent,
-                );
-              } else
-                tistoryComponentParentsMap.set(
-                  `${rootComponent}.${key}`,
-                  `${rootComponent}.${Theme[component][key].parent}`,
-                );
-            }),
-        );
         jsxElements.forEach(node => {
           const openingEl = node.openingElement;
-          const elName = elementType(openingEl);
+          const elName = jsxAstUtils.elementType(openingEl);
+          const [root, compoundChild] = elName.split('.');
 
-          if (!tistoryComponentParentsMap.has(elName)) return;
-          if (
-            !hasTistoryParentEl(node, tistoryComponentParentsMap.get(elName))
-          ) {
+          // 1. Tistory theme에서 사용되는 compound component인지 검증 // ex. Article.Thumbnail
+          const isTistoryCompound =
+            importTistoryComponents.has(root) && compoundChild;
+          if (!isTistoryCompound) return;
+
+          const isAliasImport = aliasImport.has(root);
+
+          const rootTistoryComponentName = isAliasImport
+            ? (aliasImport.get(root) as TistoryComponentsEnum)
+            : (root as TistoryComponentsEnum);
+
+          const tistoryComponent = getTistoryComponent(
+            rootTistoryComponentName,
+          );
+
+          // 2. 현재 컴포넌트가 parent property를 가지고 있는지 검증
+          const currentComponent = tistoryComponent[compoundChild];
+
+          if (!Object.hasOwn(currentComponent, 'parent')) return;
+
+          const targetParent =
+            currentComponent.parent === rootTistoryComponentName
+              ? root
+              : `${root}.${currentComponent.parent}`;
+
+          // 3. Target parent가 상위 node에 있는지 검증
+          if (!hasParentComponent(node, targetParent))
             report(context, 'tistoryComponent', {
               node,
               data: {
                 el: elName,
-                parentEl: tistoryComponentParentsMap.get(elName),
+                parentEl: targetParent,
               },
             } as Omit<Rule.ReportDescriptor, 'messageId'>);
-          }
         });
       },
     };
