@@ -12,46 +12,37 @@ const ruleTester = new RuleTester({
 });
 
 // Throws error if the tests in ruleTester.run() do not pass
-ruleTester.run(
-  'tistory-react-variables', // rule name
-  tistoryReactVariablesRule, // rule code
-  {
-    // checks
-    // 'valid' checks cases that should pass
-    valid: [
-      {
-        code: `import {Article as Ar, asdf} from 'tistory-react/theme'
+ruleTester.run('tistory-react-variables', tistoryReactVariablesRule, {
+  valid: [
+    {
+      code: `import {Article as Ar, asdf} from 'tistory-react/theme'
           const Components = () => {
             return (
               <Article>
                 <div>
-                <Article.Thumbnail>
-                {ARTICLE_THUMBNAIL_IMG}
-                </Article.Thumbnail>
+                  <Article.Thumbnail>
+                    {ARTICLE_THUMBNAIL_IMG}
+                  </Article.Thumbnail>
                 </div>
               </Article>
             )
         }`,
-      },
-    ],
-    // 'invalid' checks cases that should not pass
-    invalid: [
-      {
-        code: `import {Article} from 'tistory-react/theme'
+    },
+  ],
+  invalid: [
+    {
+      code: `import {Article} from 'tistory-react/theme'
           const Components = () => {
             return (
-              <Article.Thumbnail>
-                <Article>
+              <Article>
                 {ARTICLE_THUMBNAIL_IMG}
-                </Article>
-              </Article.Thumbnail>
+              </Article>
             )
         }`,
-        // output: 'const foo = "bar";',
-        errors: 1,
-      },
-    ],
-  },
-);
+      // output: 'const foo = "bar";',
+      errors: 1,
+    },
+  ],
+});
 
 console.log('All tests passed!');
