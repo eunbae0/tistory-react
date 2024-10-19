@@ -11,7 +11,8 @@
       "*.d.ts",
       "dist-*/**/*",
       "compiled/**/*",
-      "create-tistory-react/template/tistory-react.config.ts"
+      "create-tistory-react/template/tistory-react.config.ts",
+      "examples/**/*"
     ],
     "include": [
       "packages/**/*.ts",
