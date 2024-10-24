@@ -1,7 +1,7 @@
 {
-  "index": "안내",
-  "comment": "댓글",
-  "notice": "공지사항",
-  "protected_article": "보호글",
-  "page": "페이지"
+	"index": "기본",
+	"comment": "댓글",
+	"notice": "공지사항",
+	"protected_article": "보호글",
+	"page": "페이지"
 }
