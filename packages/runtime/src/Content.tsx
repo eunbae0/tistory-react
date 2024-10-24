@@ -1,9 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { removeLeadingSlash } from '@tistory-react/shared';
+import { createElement } from 'react';
 
-const { routes } = process.env.__SSR__
-  ? (require('virtual-routes-ssr') as typeof import('virtual-routes-ssr'))
-  : (require('virtual-routes') as typeof import('virtual-routes'));
+const { routes } = require('virtual-routes') as typeof import('virtual-routes');
 
 export const Content = () => {
   const isSSR = process.env.__SSR__;
@@ -14,20 +13,18 @@ export const Content = () => {
 
   if (!isSSR) {
     const { pathname } = useLocation();
+    const pathElement = routes.find(
+      route => route.pageName === removeLeadingSlash(pathname),
+    )?.element;
 
-    layoutElement.props = {
-      children: routes.find(
-        route => route.pageName === removeLeadingSlash(pathname),
-      )?.element,
-    };
-    return layoutElement;
+    // biome-ignore lint/correctness/noChildrenProp: <explanation>
+    return createElement(layoutElement.type, { children: pathElement });
   }
 
   const routesElements = routes
     .filter(route => route.pageName !== 'layout')
     .map(route => route.element);
 
-  layoutElement.props = { children: routesElements };
-
-  return layoutElement;
+  // biome-ignore lint/correctness/noChildrenProp: <explanation>
+  return createElement(layoutElement.type, { children: routesElements });
 };
