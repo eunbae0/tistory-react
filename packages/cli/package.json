@@ -20,8 +20,17 @@
     "./runtime": {
       "default": "./runtime.ts"
     },
-    "./theme": {
-      "default": "./theme.ts"
+    "./theme/Article": {
+      "default": "./theme/article.ts"
+    },
+    "./theme/Comment": {
+      "default": "./theme/comment.ts"
+    },
+    "./theme/Sidebar": {
+      "default": "./theme/sidebar.ts"
+    },
+    "./theme/Tags": {
+      "default": "./theme/tags.ts"
     },
     "./config": {
       "default": "./config.ts"
