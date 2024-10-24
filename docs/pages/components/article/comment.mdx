@@ -1,0 +1,460 @@
+import { Callout } from "nextra/components";
+
+## 컴포넌트
+
+댓글에 사용되는 컴포넌트 및 변수 목록입니다.
+
+### 기본
+
+#### Comment
+
+댓글 영역을 감싸는 필수 컴포넌트입니다. 댓글 접근시 해당 영역이 표시됩니다.
+
+```tsx copy
+<Comment>{children}</Comment>
+```
+
+<Callout type="info">
+`<Comment>` 컴포넌트를 이용한 예시는 [예시 링크]에서 확인할 수 있습니다.
+</Callout>
+
+### 입력 폼
+
+#### InputForm
+
+댓글을 달기 위한 입력폼 영역을 감싸는 컴포넌트입니다.
+
+```tsx copy
+<Comment.InputForm>{children}</Comment.InputForm>
+```
+
+`<Comment.InputForm>` 컴포넌트 아래에 올 수 있는 변수
+
+- [`COMMENT_INPUT_ID`](#comment_input_id)
+- [`COMMENT_INPUT_COMMENT`](#comment_input_comment)
+- [`COMMENT_INPUT_ONCLICK`](#comment_input_onclick)
+
+#### InputTextArea
+
+댓글 입력 컴포넌트입니다. [textarea 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)를 기반으로 하며, 따로 React를 이용해 로직을 작성하지 않아도 동작합니다.
+
+```tsx copy
+<Comment.InputTextArea />
+```
+
+#### InputSubmit
+
+댓글 제출 버튼 컴포넌트입니다. [input 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)를 기반으로 하며, 따로 React를 이용해 로직을 작성하지 않아도 동작합니다.
+
+```tsx copy
+<Comment.InputSubmit label="댓글 작성" />
+```
+
+##### API
+
+| Property | Description       | type      | Default     |
+| -------- | ----------------- | --------- | ----------- |
+| label    | 제출 버튼의 label | `string?` | "댓글 달기" |
+
+#### InputFormForMember
+
+로그인을 하지 않았거나 블로그 소유자가 아닌경우 보여지는 영역을 감싸는 컴포넌트입니다.
+
+```tsx copy
+<Comment.InputFormForMember>{children}</Comment.InputFormForMember>
+```
+
+`<Comment.InputFormForMember>` 컴포넌트 아래에 올 수 있는 변수
+
+- [`COMMENT_INPUT_IS_SECRET`](#comment_input_is_secret)
+
+#### InputCheckboxForSecret
+
+비밀 댓글 여부를 선택하는 체크박스 컴포넌트입니다.  
+[input 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)를 기반으로 하며, 따로 React를 이용해 로직을 작성하지 않아도 동작합니다.  
+상위 컴포넌트로 [`<Comment.InputFormForMember>`](#inputformformember)이 필요합니다.
+
+```tsx copy
+<Comment.InputCheckboxForSecret />
+```
+
+#### InputFormForGuest
+
+로그인을 하지 않았을 경우 보여지는 영역을 감싸는 컴포넌트입니다.
+
+```tsx copy
+<Comment.InputFormForGuest>{children}</Comment.InputFormForGuest>
+```
+
+상위 컴포넌트로 [`<Comment.InputFormForMember>`](#inputformformember)이 필요합니다.
+
+`<Comment.InputFormForGuest>` 컴포넌트 아래에 올 수 있는 변수
+
+- [`COMMENT_GUEST_INPUT_NAME`](#comment_guest_input_name)
+- [`COMMENT_GUEST_NAME`](#comment_guest_name)
+- [`COMMENT_GUEST_INPUT_PASSWORD`](#comment_guest_input_password)
+- [`COMMENT_GUEST_PASSWORD`](#comment_guest_password)
+- [`COMMENT_GUEST_INPUT_HOMEPAGE`](#comment_guest_input_homepage)
+- [`COMMENT_GUEST_HOMEPAGE`](#comment_guest_homepage)
+
+#### InputNameForGuest
+
+게스트 이름을 입력하는 input 컴포넌트입니다.
+[input 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)를 기반으로 하며, 따로 React를 이용해 로직을 작성하지 않아도 동작합니다.  
+상위 컴포넌트로 [`<Comment.InputFormForGuest>`](#inputformforguest)이 필요합니다.
+
+```tsx copy
+<Comment.InputNameForGuest />
+```
+
+#### InputPasswordForGuest
+
+게스트 비밀번호를 입력하는 input 컴포넌트입니다.
+[input 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)를 기반으로 하며, 따로 React를 이용해 로직을 작성하지 않아도 동작합니다.  
+상위 컴포넌트로 [`<Comment.InputFormForGuest>`](#inputformforguest)이 필요합니다.
+
+```tsx copy
+<Comment.InputPasswordForGuest />
+```
+
+#### InputHomepageForGuest
+
+게스트 홈페이지를 입력하는 input 컴포넌트입니다.
+[input 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)를 기반으로 하며, 따로 React를 이용해 로직을 작성하지 않아도 동작합니다.  
+상위 컴포넌트로 [`<Comment.InputFormForGuest>`](#inputformforguest)이 필요합니다.
+
+```tsx copy
+<Comment.InputHomepageForGuest />
+```
+
+### 댓글 리스트
+
+#### ListWrapper
+
+등록된 댓글의 **리스트**를 표시하는 영역을 감싸는 컴포넌트입니다.
+
+```tsx copy
+<Comment.ListWrapper>{children}</Comment.ListWrapper>
+```
+
+#### List
+
+등록된 댓글 영역을 감싸는 컴포넌트입니다. 해당 컴포넌트는 스킨에서 댓글을 반복 출력합니다.  
+상위 컴포넌트로 [`<Comment.ListWrapper>`](#listwrapper)이 필요합니다.
+
+```tsx copy
+<Comment.List>{children}</Comment.List>
+```
+
+`<Comment.List>` 컴포넌트 아래에 올 수 있는 변수
+
+- [`COMMENT_ID`](#comment_id)
+- [`COMMENT_STYLE`](#comment_style)
+- [`COMMENTER_NAME`](#comment_name)
+- [`COMMENTER_LOGO`](#comment_logo)
+- [`COMMENT_DATE`](#comment_date)
+- [`COMMENT_DESC`](#comment_desc)
+- [`COMMENT_LINK`](#comment_link)
+- [`COMMENT_ONCLICK_MODIFY_DELETE`](#comment_onclick_delete)
+- [`COMMENT_ONCLICK_REPLY`](#comment_onclick_change)
+
+#### ReplyWrapper
+
+등록된 댓글의 댓글(대댓글)의 **리스트**를 표시하는 영역을 감싸는 컴포넌트입니다.  
+상위 컴포넌트로 [`<Comment.List>`](#list)가 필요합니다.
+
+```tsx copy
+<Comment.ReplyWrapper>{children}</Comment.ReplyWrapper>
+```
+
+#### Reply
+
+등록된 댓글의 댓글(대댓글) 영역을 감싸는 컴포넌트입니다. 해당 컴포넌트는 스킨에서 대댓글을 반복 출력합니다.  
+상위 컴포넌트로 [`<Comment.ReplyWrapper>`](#replywrapper)가 필요합니다.
+
+```tsx copy
+<Comment.Reply>{children}</Comment.Reply>
+```
+
+#### Name
+
+댓글 작성자의 이름을 표시하는 span 컴포넌트입니다.  
+[span 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)를 기반으로 합니다.
+
+```tsx copy
+<Comment.Name />
+```
+
+#### Logo
+
+댓글 작성자의 프로필 이미지를 표시하는 span 컴포넌트입니다.  
+[span 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)를 기반으로 합니다.
+
+```tsx copy
+<Comment.Logo />
+```
+
+#### Date
+
+댓글 작성일을 표시하는 span 컴포넌트입니다.  
+[span 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)를 기반으로 합니다.
+
+```tsx copy
+<Comment.Date />
+```
+
+#### AddressLink
+
+댓글 주소 바로가기 링크 컴포넌트입니다.  
+[a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Comment.AddressLink />
+```
+
+##### API
+
+| Property | Description                        | type      | Default    |
+| -------- | ---------------------------------- | --------- | ---------- |
+| label    | label of `<Comment.AddressLink />` | `string?` | "댓글주소" |
+
+#### DeleteLink
+
+댓글을 수정 또는 삭제할 수 있는 새 창으로 바로가기 링크 컴포넌트입니다.  
+[a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 하며, 클릭시 댓글 삭제가 가능합니다.
+
+```tsx copy
+<Comment.ModifyOrDeleteLink />
+```
+
+##### API
+
+| Property | Description                               | type      | Default     |
+| -------- | ----------------------------------------- | --------- | ----------- |
+| label    | label of `<Comment.ModifyOrDeleteLink />` | `string?` | "수정/삭제" |
+
+#### WriteReplyLink
+
+댓글의 댓글(대댓글)을 작성할 수 있는 새 창으로 바로가기 링크 컴포넌트입니다.  
+[a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 하며, 클릭시 대댓글 작성이 가능합니다.
+
+```tsx copy
+<Comment.WriteReplyLink />
+```
+
+##### API
+
+| Property | Description                           | type      | Default    |
+| -------- | ------------------------------------- | --------- | ---------- |
+| label    | label of `<Comment.WriteReplyLink />` | `string?` | "댓글쓰기" |
+
+## 변수
+
+`<Comment>` 컴포넌트 아래에서만 표시되는 변수 목록입니다.
+
+### 기본
+
+#### COMMENT_INPUT_ID
+
+댓글주소. 댓글들을 구분하기위해 사용합니다. 한 화면에 있는 댓글들은 각각 고유의 값을 가지고 있습니다.
+
+```tsx copy
+<div id={COMMENT_INPUT_ID}>{children}</div>
+```
+
+#### COMMENT_INPUT_COMMENT
+
+댓글 입력 박스 이름
+
+```tsx copy
+<textarea name={COMMENT_INPUT_COMMENT} {...props} />
+```
+
+#### COMMENT_INPUT_ONCLICK
+
+댓글 입력 온클릭 이벤트
+
+```tsx copy
+<input
+	type="submit"
+	value={`${value ?? label ?? "댓글 달기"}`}
+	data-onclick={COMMENT_INPUT_ONCLICK}
+	{...rest}
+/>
+```
+
+#### COMMENT_INPUT_IS_SECRET
+
+비밀글 체크박스 이름
+
+```tsx copy
+<input type="checkbox" name={COMMENT_INPUT_IS_SECRET} {...props} />
+```
+
+#### COMMENT_GUEST_INPUT_NAME
+
+게스트 이름을 입력하는 input의 name. 상위 컴포넌트로 [`<Article.InputFormForGuest>`](#inputformforguest)가 필요하며, input tag의 `name`에 할당하여 사용합니다.
+
+```tsx copy
+<input
+	type="text"
+	name={COMMENT_GUEST_INPUT_NAME}
+	value={COMMENT_GUEST_NAME}
+	{...rest}
+/>
+```
+
+##### 참조 컴포넌트
+
+[`<Article.InputNameForGuest>`](#inputnameforguest)
+
+#### COMMENT_GUEST_NAME
+
+게스트 이름을 입력하는 input의 value. 상위 컴포넌트로 [`<Article.InputFormForGuest>`](#inputformforguest)가 필요하며, input tag의 `value`에 할당하여 사용합니다.
+
+```tsx copy
+<input
+	type="text"
+	name={COMMENT_GUEST_INPUT_NAME}
+	value={COMMENT_GUEST_NAME}
+	{...rest}
+/>
+```
+
+##### 참조 컴포넌트
+
+[`<Article.InputNameForGuest>`](#inputnameforguest)
+
+#### COMMENT_GUEST_INPUT_PASSWORD
+
+게스트 비밀번호를 입력하는 input의 name. 상위 컴포넌트로 [`<Article.InputFormForGuest>`](#inputformforguest)가 필요하며, input tag의 `name`에 할당하여 사용합니다.
+
+```tsx copy
+<input
+	type="password"
+	name={COMMENT_GUEST_INPUT_PASSWORD}
+	value={COMMENT_GUEST_PASSWORD}
+	{...rest}
+/>
+```
+
+##### 참조 컴포넌트
+
+[`<Article.InputPasswordForGuest>`](#inputpasswordforguest)
+
+#### COMMENT_GUEST_PASSWORD
+
+게스트 비밀번호를 입력하는 input의 value. 상위 컴포넌트로 [`<Article.InputFormForGuest>`](#inputformforguest)가 필요하며, input tag의 `value`에 할당하여 사용합니다.
+
+```tsx copy
+<input
+	type="password"
+	name={COMMENT_GUEST_INPUT_PASSWORD}
+	value={COMMENT_GUEST_PASSWORD}
+	{...rest}
+/>
+```
+
+##### 참조 컴포넌트
+
+[`<Article.InputPasswordForGuest>`](#inputpasswordforguest)
+
+#### COMMENT_GUEST_INPUT_HOMEPAGE
+
+게스트 홈페이지를 입력하는 input의 name. 상위 컴포넌트로 [`<Article.InputFormForGuest>`](#inputformforguest)가 필요하며, input tag의 `name`에 할당하여 사용합니다.
+
+```tsx copy
+<input
+	type="text"
+	name={COMMENT_GUEST_INPUT_HOMEPAGE}
+	value={COMMENT_GUEST_HOMEPAGE}
+	{...rest}
+/>
+```
+
+##### 참조 컴포넌트
+
+[`<Article.InputHomepageForGuest>`](#inputhomepageforguest)
+
+#### COMMENT_GUEST_HOMEPAGE
+
+게스트 홈페이지를 입력하는 input의 value. 상위 컴포넌트로 [`<Article.InputFormForGuest>`](#inputformforguest)가 필요하며, input tag의 `value`에 할당하여 사용합니다.
+
+```tsx copy
+<input
+	type="text"
+	name={COMMENT_GUEST_INPUT_HOMEPAGE}
+	value={COMMENT_GUEST_HOMEPAGE}
+	{...rest}
+/>
+```
+
+##### 참조 컴포넌트
+
+[`<Article.InputHomepageForGuest>`](#inputhomepageforguest)
+
+### 댓글 리스트
+
+#### COMMENT_ID
+
+댓글의 고유 ID
+
+#### COMMENT_STYLE
+
+댓글의 글의 목록에 반복되는 스타일 + admin 아이디 앞에 아이콘
+
+#### COMMENTER_NAME
+
+글쓴사람 이름
+
+```tsx copy
+<span>{COMMENTER_NAME}</span>
+```
+
+#### COMMENTER_LOGO
+
+댓글작성자의 프로필 이미지
+
+```tsx copy
+<span>{COMMENTER_LOGO}</span>
+```
+
+#### COMMENT_DATE
+
+글쓴 날짜
+
+```tsx copy
+<span>{COMMENT_DATE}</span>
+```
+
+#### COMMENT_DESC
+
+글 내용
+
+```tsx copy
+<span>{COMMENT_DESC}</span>
+```
+
+#### COMMENT_LINK
+
+댓글 주소
+
+```tsx copy
+<span>{COMMENT_LINK}</span>
+```
+
+#### COMMENT_ONCLICK_MODIFY_DELETE
+
+답글 수정 또는 삭제 온클릭 이벤트
+
+```tsx copy
+<a href="#" data-onclick={COMMENT_ONCLICK_MODIFY_DELETE} >
+```
+
+#### COMMENT_ONCLICK_REPLY
+
+답글 온클릭 이벤트
+
+```tsx copy
+<a href="#" data-onclick={COMMENT_ONCLICK_REPLY} >
+```
