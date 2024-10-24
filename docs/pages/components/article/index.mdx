@@ -1,0 +1,587 @@
+import { Callout } from "nextra/components";
+
+## 컴포넌트
+
+게시글에 사용되는 컴포넌트 및 변수 목록입니다.
+
+### 기본
+
+#### Article
+
+게시글을 감싸는 필수 컴포넌트입니다.
+
+```tsx copy
+<Article>{children}</Article>
+```
+
+<Callout type="info">
+`<Article>` 컴포넌트를 이용한 예시는 [예시 링크]에서 확인할 수 있습니다.
+</Callout>
+
+#### ArticleLink
+
+블로그 글의 고유 주소 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.ArticleLink />
+```
+
+#### CategoryLink
+
+카테고리 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.CategoryLink />
+```
+
+#### RedirectCommentLink
+
+댓글을 열고 닫을 수 있는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.RedirectCommentLink />
+```
+
+#### Thumbnail
+
+대표 이미지 썸네일이 표시되는 영역입니다. (대표 이미지가 없는 경우 표시되지 않음)
+
+```tsx copy
+<Article.Thumbnail>{children}</Article.Thumbnail>
+```
+
+해당 컴포넌트 아래에 올 수 있는 변수
+
+- [`ARTICLE_THUMBNAIL_URL`](#article_thumbnail_url)
+- [`ARTICLE_THUMBNAIL_RAW_URL`](#article_thumbnail_raw_url)
+
+#### ThumbnailImg
+
+대표 이미지 컴포넌트 입니다. [img 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)를 기반으로 하며,
+상위 컴포넌트로 [`<Article.Thumbnail>`](#thumbnail)이 필요합니다.
+
+```tsx copy
+<Article.Thumbnail>
+	<Article.ThumbnailImg />
+</Article.Thumbnail>
+```
+
+#### CommentCount
+
+댓글의 갯수를 출력하는 영역입니다.
+
+```tsx copy
+<Article.CommentCount>{children}</Article.CommentCount>
+```
+
+해당 컴포넌트 아래에 올 수 있는 변수
+
+- [`ARTICLE_COMMENT_COUNT`](#article_comment_count)
+
+### 관리기능 (어드민)
+
+#### Admin
+
+글 관리기능을 보여주는 컴포넌트입니다. (관리 권한 있는 경우만 표시됩니다)
+
+```tsx copy
+<Article.Admin>{children}</Article.Admin>
+```
+
+`<Article.Admin>` 아래에 올 수 있는 변수
+
+- [`ADMIN_CURRENT_STATE`](#admin_current_state)
+- [`ADMIN_NEXT_STATE`](#admin_next_state)
+
+#### AdminModifyLink
+
+게시글을 수정하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.AdminModifyLink />
+```
+
+#### AdminModifyLinkWithNewWindow
+
+새 창으로 게시글을 수정하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.AdminModifyLinkWithNewWindow />
+```
+
+#### AdminStateChangeLink
+
+게시글 상태를 변경하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.AdminStateChangeLink />
+```
+
+#### AdminTrackBackLink
+
+관련 글을 트랙백하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.AdminTrackBackLink />
+```
+
+#### AdminDeleteLink
+
+게시글을 삭제하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.AdminDeleteLink />
+```
+
+### 태그
+
+#### Tag
+
+글과 관련된 태그가 출력되는 영역을 감싸는 컴포넌트입니다.
+
+```tsx copy
+<Article.Tag>{children}</Article.Tag>
+```
+
+`<Article.Tag>` 아래에 올 수 있는 변수
+
+- [`TAG_LABEL`](#tag_label)
+
+### 퍼머링크 / 인덱스
+
+TODO: 퍼머링크 / 인덱스 세부 안내 텍스트 추가
+
+퍼머링크 페이지에서와 인덱스 페이지에서 표시될 내용을 구분할 수 있습니다.
+만약 퍼머링크 페이지 또는 인덱스 페이지 영역 밖에서 사용되는 컴포넌트 및 변수는 둘 모두에서 표시됩니다.
+
+#### Permalink
+
+퍼머링크 영역을 감싸는 컴포넌트입니다. `<Article>`의 [기본 컴포넌트](#기본)와 [기본 변수](#기본-1)를 동일하게 사용할 수 있습니다.
+
+```tsx copy
+<Article.Permalink>{children}</Article.Permalink>
+```
+
+#### Index
+
+인덱스 영역을 감싸는 컴포넌트입니다. `<Article>`의 [기본 컴포넌트](#기본)와 [기본 변수](#기본-1)를 동일하게 사용할 수 있습니다.
+
+```tsx copy
+<Article.Index>{children}</Article.Index>
+```
+
+### 카테고리의 다른 글
+
+#### Related
+
+글이 속한 카테고리의 다른 글을 보여주는 영역을 감싸는 컴포넌트입니다. 카테고리에 속하지 않은 글에는 표시되지 않습니다.
+
+```tsx copy
+<Article.Related>{children}</Article.Related>
+```
+
+`<Article.Related>` 아래에 올 수 있는 변수
+
+- [`RELATED_ARTICLE_TYPE`](#related_article_type)
+- [`RELATED_ARTICLE_LINK`](#related_article_link)
+- [`RELATED_ARTICLE_TITLE`](#related_article_title)
+- [`RELATED_ARTICLE_DATE`](#related_article_date)
+
+#### AdminStateChangeLink
+
+카테고리의 다른 글의 주소로 이동하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.RelatedLink />
+```
+
+#### RelatedThumbnail
+
+대표 이미지 썸네일을 표시하는 영역을 감싸는 컴포넌트입니다. 대표 이미지가 있는 경우에만 표시됩니다.
+
+```tsx copy
+<Article.RelatedThumbnail>{children}</Article.RelatedThumbnail>
+```
+
+`<Article.RelatedThumbnail>` 아래에 올 수 있는 변수
+
+- [`RELATED_ARTICLE_THUMBNAIL`](#related_article_thumbnail)
+
+#### RelatedThumbnailImg
+
+카테고리의 다른 글의 대표 이미지 썸네일 이미지 컴포넌트 입니다. [img 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)를 기반으로 합니다.
+
+```tsx copy
+<Article.RelatedThumbnailImg /> // <img src={RELATED_THUMBNAIL_LINK} alt="Related Article Thumbnail" {...props} />;
+```
+
+### 이전 글 / 다음 글
+
+#### Prev
+
+이전 글 영역을 감싸는 컴포넌트입니다. 이전 글이 있는 경우 표시됩니다.
+
+```tsx copy
+<Article.Prev>{children}</Article.Prev>
+```
+
+`<Article.Prev>` 아래에 올 수 있는 변수
+
+- [`PREV_TYPE`](#prev_type)
+- [`PREV_LINK`](#prev_link)
+- [`PREV_TITLE`](#prev_title)
+- [`PREV_DATE`](#prev_date)
+
+#### PrevLink
+
+이전 글의 주소로 이동하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.PrevLink />
+```
+
+#### PrevThumbNail
+
+이전 글의 대표 이미지 썸네일을 표시할 수 있는 영역을 감싸는 컴포넌트입니다. 대표 이미지가 있는 경우 표시됩니다.
+
+```tsx copy
+<Article.PrevThumbNail>{children}</Article.PrevThumbNail>
+```
+
+`<Article.RelatedThumbnail>` 아래에 올 수 있는 변수
+
+- [`PREV_THUMBLNAIL_LINK`](#prev_thumbnail_link)
+
+#### PrevThumbNailImg
+
+이전 글의 대표 이미지 썸네일 이미지 컴포넌트 입니다. [img 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)를 기반으로 합니다.
+
+```tsx copy
+<Article.PrevThumbNailImg /> // <img src={PREV_THUMBLNAIL_LINK} alt="Prev Article Thumbnail" {...props} />
+```
+
+#### Next
+
+다음 글 영역을 감싸는 컴포넌트입니다. 다음 글이 있는 경우 표시됩니다.
+
+```tsx copy
+<Article.Next>{children}</Article.Next>
+```
+
+`<Article.Next>` 아래에 올 수 있는 변수
+
+- [`NEXT_TYPE`](#next_type)
+- [`NEXT_LINK`](#next_link)
+- [`NEXT_TITLE`](#next_title)
+- [`NEXT_DATE`](#next_date)
+
+#### NextLink
+
+다음 글의 주소로 이동하는 링크입니다. [a 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)를 기반으로 합니다.
+
+```tsx copy
+<Article.NextLink />
+```
+
+#### NextThumbNail
+
+다음 글의 대표 이미지 썸네일을 표시할 수 있는 영역을 감싸는 컴포넌트입니다. 대표 이미지가 있는 경우 표시됩니다.
+
+```tsx copy
+<Article.NextThumbNail>{children}</Article.NextThumbNail>
+```
+
+`<Article.RelatedThumbnail>` 아래에 올 수 있는 변수
+
+- [`NEXT_THUMBLNAIL_LINK`](#next_thumbnail_link)
+
+#### NextThumbNailImg
+
+다음 글의 대표 이미지 썸네일 이미지 컴포넌트 입니다. [img 태그](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)를 기반으로 합니다.
+
+```tsx copy
+<Article.NextThumbNailImg /> // <img src={NEXT_THUMBLNAIL_LINK} alt="Next Article Thumbnail" {...props} />
+```
+
+## 변수
+
+`<Article>` 컴포넌트 아래에서만 표시됩니다.
+
+### 기본
+
+#### ARTICLE_TITLE
+
+블로그 글의 제목
+
+```tsx copy
+<div>{ARTICLE_TITLE}</div>
+```
+
+#### ARTICLE_CATEGORY
+
+카테고리명
+
+```tsx copy
+<div>{ARTICLE_CATEGORY}</div>
+```
+
+#### ARTICLE_DATE
+
+글쓴 날짜/시간 (yyyy. m. d. HH:MM)
+
+```tsx copy
+<div>{ARTICLE_DATE}</div>
+```
+
+#### ARTICLE_SIMPLE_DATE
+
+글쓴 날짜 (yyyy. m. d.)
+
+```tsx copy
+<div>{ARTICLE_SIMPLE_DATE}</div>
+```
+
+#### ARTICLE_DATE_YEAR
+
+글쓴 세부시간 - 연도 (yyyy)
+
+```tsx copy
+<div>{ARTICLE_DATE_YEAR}</div>
+```
+
+#### ARTICLE_DATE_MONTH
+
+글쓴 세부시간 - 월 (mm)
+
+```tsx copy
+<div>{ARTICLE_DATE_MONTH}</div>
+```
+
+#### ARTICLE_DATE_DAY
+
+글쓴 세부시간 - 일 (dd)
+
+```tsx copy
+<div>{ARTICLE_DATE_DAY}</div>
+```
+
+#### ARTICLE_DATE_HOUR
+
+글쓴 세부시간 - 시 (HH)
+
+```tsx copy
+<div>{ARTICLE_DATE_HOUR}</div>
+```
+
+#### ARTICLE_DATE_MINUTE
+
+글쓴 세부시간 - 분 (MM)
+
+```tsx copy
+<div>{ARTICLE_DATE_MINUTE}</div>
+```
+
+#### ARTICLE_DATE_SECOND
+
+글쓴 세부시간 - 초 (SS)
+
+```tsx copy
+<div>{ARTICLE_DATE_SECOND}</div>
+```
+
+#### ARTICLE_AUTHOR
+
+작성자 이름 (\*팀블로그용 치환자)
+
+```tsx copy
+<div>{ARTICLE_AUTHOR}</div>
+```
+
+#### ARTICLE_DESCRIPTION
+
+블로그 본문 내용
+
+```tsx copy
+<div>{ARTICLE_DESCRIPTION}</div>
+```
+
+#### ARTICLE_THUMBNAIL_URL
+
+대표 이미지 썸네일 주소. 상위 컴포넌트로 [`<Article.Thumbnail>`](#thumbnail)이 필요합니다.
+
+```tsx copy
+<img src={ARTICLE_THUMBNAIL_URL} {...props} />
+```
+
+#### ARTICLE_THUMBNAIL_RAW_URL
+
+대표 이미지 원본 주소. 상위 컴포넌트로 [`<Article.Thumbnail>`](#thumbnail)이 필요합니다.
+
+```tsx copy
+<div>{ARTICLE_THUMBNAIL_RAW_URL}</div>
+```
+
+#### ARTICLE_COMMENT_COUNT
+
+답글 수. 상위 컴포넌트로 [`<Article.CommentCount>`](#commentcount)이 필요합니다.
+
+```tsx copy
+<div>{ARTICLE_COMMENT_COUNT}</div>
+```
+
+### 관리기능 (어드민)
+
+#### ADMIN_CURRENT_STATE
+
+글의 현재 상태. 상위 컴포넌트로 [`<Article.Admin>`](#admin)이 필요합니다.
+
+```tsx copy
+<div>{ADMIN_CURRENT_STATE}</div>
+```
+
+#### ADMIN_NEXT_STATE
+
+글의 이후 상태. 상위 컴포넌트로 [`<Article.Admin>`](#admin)이 필요합니다.
+
+```tsx copy
+<div>{ADMIN_NEXT_STATE}</div>
+```
+
+### 태그
+
+#### TAG_LABEL
+
+태그 반복 출력. 상위 컴포넌트로 [`<Article.Tag>`](#tag)이 필요합니다.
+
+```tsx copy
+<span>{TAG_LABEL}</span>
+```
+
+### 카테고리의 다른 글
+
+#### RELATED_ARTICLE_TYPE
+
+카테고리의 다른 글의 type (대표이미지 없음: `text_type`, 대표이미지 있음: `thumb_type`). 상위 컴포넌트로 [`<Article.Related>`](#related)가 필요합니다.
+컴포넌트의 `className` 태그에 할당하여 사용합니다.
+
+```tsx copy
+<li className={RELATED_ARTICLE_TYPE}>
+```
+
+#### RELATED_ARTICLE_LINK
+
+카테고리의 다른 글의 주소. 상위 컴포넌트로 [`<Article.Related>`](#related)가 필요합니다. a tag의 href에 할당하여 사용합니다.
+
+```tsx copy
+<a href={RELATED_ARTICLE_LINK} {...props} />
+```
+
+#### RELATED_ARTICLE_TITLE
+
+카테고리의 다른 글의 제목. 상위 컴포넌트로 [`<Article.Related>`](#related)가 필요합니다.
+
+```tsx copy
+<span>{RELATED_ARTICLE_TITLE}</span>
+```
+
+#### RELATED_ARTICLE_DATE
+
+카테고리의 다른 글의 발행시간. 상위 컴포넌트로 [`<Article.Related>`](#related)가 필요합니다.
+
+```tsx copy
+<span>{RELATED_ARTICLE_DATE}</span>
+```
+
+#### RELATED_THUMBNAIL_LINK
+
+카테고리의 다른글의 대표 이미지 썸네일 주소. 상위 컴포넌트로 [`<Article.RelatedThumbnail>`](#relatedthumbnail)가 필요하며, img tag의 `src`에 할당하여 사용합니다.
+
+```tsx copy
+<img src={RELATED_THUMBNAIL_LINK} alt="Related Article Thumbnail" />
+```
+
+### 이전 글 / 다음 글
+
+#### PREV_TYPE
+
+이전 글의 type (대표이미지 없음: `text_type`, 대표이미지 있음: `thumb_type`). 상위 컴포넌트로 [`<Article.Prev>`](#prev)가 필요합니다.
+
+```tsx copy
+<li className={PREV_TYPE}>
+```
+
+#### PREV_LINK
+
+이전 글의 주소. 상위 컴포넌트로 [`<Article.Prev>`](#prev)가 필요합니다. a tag의 href에 할당하여 사용합니다.
+컴포넌트의 `className` 태그에 할당하여 사용합니다.
+
+```tsx copy
+<a href={PREV_LINK} {...props} />
+```
+
+#### PREV_TITLE
+
+이전 글의 제목. 상위 컴포넌트로 [`<Article.Prev>`](#prev)가 필요합니다.
+
+```tsx copy
+<span>{PREV_TITLE}</span>
+```
+
+#### PREV_DATE
+
+이전 글의 발행시간. 상위 컴포넌트로 [`<Article.Prev>`](#prev)가 필요합니다.
+
+```tsx copy
+<span>{PREV_DATE}</span>
+```
+
+#### PREV_LINK
+
+이전 글의 대표 이미지 썸네일 주소. 상위 컴포넌트로 [`<Article.PrevThumbnail>`](#prevthumbnail)가 필요하며, img tag의 `src`에 할당하여 사용합니다.
+
+```tsx copy
+<img src={PREV_LINK} alt="Prev Article Thumbnail" />
+```
+
+---
+
+#### NEXT_TYPE
+
+다음 글의 type (대표이미지 없음: `text_type`, 대표이미지 있음: `thumb_type`). 상위 컴포넌트로 [`<Article.Next>`](#next)가 필요합니다.
+컴포넌트의 `className` 태그에 할당하여 사용합니다.
+
+```tsx copy
+<li className={NEXT_TYPE}>
+```
+
+#### NEXT_LINK
+
+다음 글의 주소. 상위 컴포넌트로 [`<Article.Next>`](#next)가 필요합니다. a tag의 href에 할당하여 사용합니다.
+
+```tsx copy
+<a href={NEXT_LINK} {...props} />
+```
+
+#### NEXT_TITLE
+
+다음 글의 제목. 상위 컴포넌트로 [`<Article.Next>`](#next)가 필요합니다.
+
+```tsx copy
+<span>{NEXT_TITLE}</span>
+```
+
+#### NEXT_DATE
+
+다음 글의 발행시간. 상위 컴포넌트로 [`<Article.Next>`](#next)가 필요합니다.
+
+```tsx copy
+<span>{NEXT_DATE}</span>
+```
+
+#### NEXT_LINK
+
+다음 글의 대표 이미지 썸네일 주소. 상위 컴포넌트로 [`<Article.NextThumbnail>`](#nextthumbnail)가 필요하며, img tag의 `src`에 할당하여 사용합니다.
+
+```tsx copy
+<img src={NEXT_LINK} alt="Next Article Thumbnail" />
+```
