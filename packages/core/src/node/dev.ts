@@ -16,19 +16,16 @@ interface DevOptions {
 export async function dev(options: DevOptions): Promise<ServerInstance> {
   const { docDirectory, config, extraBuilderConfig } = options;
 
-  try {
-    const builder = await initRsbuild(
-      docDirectory,
-      config,
-      false,
-      extraBuilderConfig,
-    );
+  const builder = await initRsbuild(
+    docDirectory,
+    config,
+    false,
+    extraBuilderConfig,
+  );
 
-    const { server } = await builder.startDevServer({
-      getPortSilently: true,
-    });
+  const { server } = await builder.startDevServer({
+    getPortSilently: true,
+  });
 
-    return server;
-  } finally {
-  }
+  return server;
 }
