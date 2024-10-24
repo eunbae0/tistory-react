@@ -8,9 +8,19 @@ export const Related = ({ children }: PropsWithChildren) => {
   return <s_article_related>{children}</s_article_related>;
 };
 
+Related.parent = 'Article';
+Related.childVariables = [
+  'RELATED_ARTICLE_TYPE',
+  'RELATED_ARTICLE_LINK',
+  'RELATED_ARTICLE_TITLE',
+  'RELATED_ARTICLE_DATE',
+];
+
 export const RelatedLink = (props: RepAnchorProps) => {
   return <a href={RELATED_ARTICLE_LINK} {...props} />;
 };
+
+RelatedLink.parent = 'Related';
 
 /**
  * 글의 type (대표이미지 없음: text_type, 대표이미지 있음: thumb_type)
@@ -43,9 +53,14 @@ export const RelatedThumbnail = ({ children }: PropsWithChildren) => {
   );
 };
 
+RelatedThumbnail.parent = 'Related';
+RelatedThumbnail.childVariables = ['RELATED_THUMBNAIL_LINK'];
+
 export const RelatedThumbnailImg = (props: RepImgProps) => {
   return <img src={RELATED_THUMBNAIL_LINK} alt="Related Article Thumbnail" />;
 };
+
+RelatedThumbnailImg.parent = 'RelatedThumbnail';
 
 /**
  * 대표 이미지 썸네일 주소

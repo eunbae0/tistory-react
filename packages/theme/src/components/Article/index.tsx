@@ -58,6 +58,8 @@ const ArticleLink = (props: RepAnchorProps) => {
   return <a href="[##_article_rep_link_##]" {...props} />;
 };
 
+ArticleLink.parent = 'Article';
+
 /**
  * 카테고리 링크
  */
@@ -65,12 +67,16 @@ const CategoryLink = (props: RepAnchorProps) => {
   return <a href="[##_article_rep_category_link_##]" {...props} />;
 };
 
+CategoryLink.parent = 'Article';
+
 /**
  * 댓글을 열고 닫는 온클릭 이벤트
  */
 const RedirectCommentLink = (props: RepAnchorProps) => {
   return <a href="[##_article_rep_rp_link_##]" {...props} />;
 };
+
+RedirectCommentLink.parent = 'Article';
 
 /**
  * 대표 이미지 썸네일이 표시되는 영역 (대표 이미지가 없는 경우 표시되지 않음)
@@ -98,6 +104,7 @@ const CommentCount = ({ children }: PropsWithChildren) => {
   return <s_rp_count>{children}</s_rp_count>;
 };
 
+CommentCount.parent = 'Article';
 CommentCount.childVariables = ['ARTICLE_COMMENT_COUNT'];
 
 /**

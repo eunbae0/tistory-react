@@ -8,7 +8,7 @@ import {
   InputPasswordForGuest,
   InputSubmit,
   InputTextArea,
-  InputTextForGuest,
+  InputNameForGuest,
 } from './InputForm';
 import {
   ListWrapper,
@@ -19,7 +19,7 @@ import {
   Logo,
   Date as ListDate,
   AddressLink,
-  DeleteLink,
+  ModifyOrDeleteLink,
   WriteReplyLink,
 } from './List';
 
@@ -48,7 +48,7 @@ Comment.InputSubmit = InputSubmit;
 Comment.InputFormForMember = InputFormForMember;
 Comment.InputCheckboxForSecret = InputCheckboxForSecret;
 Comment.InputFormForGuest = InputFormForGuest;
-Comment.InputTextForGuest = InputTextForGuest;
+Comment.InputNameForGuest = InputNameForGuest;
 Comment.InputPasswordForGuest = InputPasswordForGuest;
 Comment.InputHomepageForGuest = InputHomepageForGuest;
 
@@ -60,7 +60,7 @@ Comment.Name = Name;
 Comment.Logo = Logo;
 Comment.Date = ListDate;
 Comment.AddressLink = AddressLink;
-Comment.DeleteLink = DeleteLink;
+Comment.ModifyOrDeleteLink = ModifyOrDeleteLink;
 Comment.WriteReplyLink = WriteReplyLink;
 
 export {
@@ -83,6 +83,6 @@ export {
   COMMENT_DATE,
   COMMENT_DESC,
   COMMENT_LINK,
-  COMMENT_ONCLICK_DELETE,
-  COMMENT_ONCLICK_CHANGE,
+  COMMENT_ONCLICK_MODIFY_DELETE,
+  COMMENT_ONCLICK_REPLY,
 } from './List';

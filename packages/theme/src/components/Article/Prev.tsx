@@ -20,9 +20,14 @@ export const Prev = ({ children }: PropsWithChildren) => {
   return <s_article_prev>{children}</s_article_prev>;
 };
 
+Prev.parent = 'Article';
+Prev.childVariables = ['PREV_TYPE', 'PREV_LINK', 'PREV_TITLE', 'PREV_DATE'];
+
 export const PrevLink = (props: RepAnchorProps) => {
   return <a href={PREV_LINK} {...props} />;
 };
+
+PrevLink.parent = 'Prev';
 
 /**
  * 대표 이미지 썸네일이 표시되는 그룹치환자 (대표 이미지가 있는 경우 표시)
@@ -31,11 +36,16 @@ export const PrevThumbNail = ({ children }: PropsWithChildren) => {
   return <s_article_prev_thumbnail>{children}</s_article_prev_thumbnail>;
 };
 
+PrevThumbNail.parent = 'Prev';
+PrevThumbNail.childVariables = ['PREV_THUMBLNAIL_LINK'];
+
 export const PrevThumbNailImg = (props: RepImgProps) => {
   return (
     <img src={PREV_THUMBLNAIL_LINK} alt="Prev Article Thumbnail" {...props} />
   );
 };
+
+PrevThumbNailImg.parent = 'PrevThumbNail';
 
 /**
  * 글의 type (대표이미지 없음: text_type, 대표이미지 있음: thumb_type)

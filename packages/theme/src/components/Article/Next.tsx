@@ -20,9 +20,14 @@ export const Next = ({ children }: PropsWithChildren) => {
   return <s_article_next>{children}</s_article_next>;
 };
 
+Next.parent = 'Article';
+Next.childVariables = ['NEXT_TYPE', 'NEXT_LINK', 'NEXT_TITLE', 'NEXT_DATE'];
+
 export const NextLink = (props: RepAnchorProps) => {
   return <a href={NEXT_LINK} {...props} />;
 };
+
+NextLink.parent = 'Next';
 
 /**
  * 대표 이미지 썸네일이 표시되는 그룹치환자 (대표 이미지가 있는 경우 표시)
@@ -31,11 +36,16 @@ export const NextThumbNail = ({ children }: PropsWithChildren) => {
   return <s_article_next_thumbnail>{children}</s_article_next_thumbnail>;
 };
 
+NextThumbNail.parent = 'Next';
+NextThumbNail.childVariables = ['NEXT_THUMBLNAIL_LINK'];
+
 export const NextThumbNailImg = (props: RepImgProps) => {
   return (
     <img src={NEXT_THUMBLNAIL_LINK} alt="Next Article Thumbnail" {...props} />
   );
 };
+
+NextThumbNailImg.parent = 'NextThumbNail';
 
 /**
  * 글의 type (대표이미지 없음: text_type, 대표이미지 있음: thumb_type)

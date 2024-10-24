@@ -67,6 +67,8 @@ export const ListWrapper = (props: RepOlProps) => {
   );
 };
 
+ListWrapper.parent = 'Comment';
+
 export const List = (props: RepLiProps) => {
   return (
     <s_rp_rep>
@@ -74,6 +76,19 @@ export const List = (props: RepLiProps) => {
     </s_rp_rep>
   );
 };
+
+List.parent = 'ListWrapper';
+List.childVariables = [
+  'COMMENT_ID',
+  'COMMENT_STYLE',
+  'COMMENTER_NAME',
+  'COMMENTER_LOGO',
+  'COMMENT_DATE',
+  'COMMENT_DESC',
+  'COMMENT_LINK',
+  'COMMENT_ONCLICK_MODIFY_DELETE',
+  'COMMENT_ONCLICK_REPLY',
+];
 
 export const ReplyWrapper = (props: RepUlProps) => {
   return (
@@ -83,6 +98,8 @@ export const ReplyWrapper = (props: RepUlProps) => {
   );
 };
 
+ReplyWrapper.parent = 'List';
+
 export const Reply = (props: RepLiProps) => {
   return (
     <s_rp2_rep>
@@ -91,17 +108,24 @@ export const Reply = (props: RepLiProps) => {
   );
 };
 
+Reply.parent = 'ReplyWrapper';
+
 export const Name = (props: RepSpanProps) => {
   return <span {...props}>{COMMENTER_NAME}</span>;
 };
 
+Name.parent = 'Reply';
+
 export const Logo = (props: RepSpanProps) => {
   return <span {...props}>{COMMENTER_LOGO}</span>;
 };
+Logo.parent = 'Reply';
 
 export const Date = (props: RepSpanProps) => {
   return <span {...props}>{COMMENT_DATE}</span>;
 };
+
+Date.parent = 'Reply';
 
 export const AddressLink = (props: RepAnchorProps) => {
   const { label, ...rest } = props;
@@ -112,23 +136,29 @@ export const AddressLink = (props: RepAnchorProps) => {
   );
 };
 
-export const DeleteLink = (props: RepAnchorProps) => {
+AddressLink.parent = 'Reply';
+
+export const ModifyOrDeleteLink = (props: RepAnchorProps) => {
   const { label, ...rest } = props;
   return (
-    <a href="#" data-onclick={COMMENT_ONCLICK_DELETE} {...rest}>
+    <a href="#" data-onclick={COMMENT_ONCLICK_MODIFY_DELETE} {...rest}>
       {label ?? '수정/삭제'}
     </a>
   );
 };
 
+ModifyOrDeleteLink.parent = 'Reply';
+
 export const WriteReplyLink = (props: RepAnchorProps) => {
   const { label, ...rest } = props;
   return (
-    <a href="#" data-onclick={COMMENT_ONCLICK_CHANGE} {...rest}>
+    <a href="#" data-onclick={COMMENT_ONCLICK_REPLY} {...rest}>
       {label ?? '댓글쓰기'}
     </a>
   );
 };
+
+WriteReplyLink.parent = 'Reply';
 
 /**
  * 댓글의 고유 ID
@@ -166,11 +196,11 @@ export const COMMENT_DESC = '[##_rp_rep_desc_##]';
 export const COMMENT_LINK = '[##_rp_rep_link_##]';
 
 /**
- * 답글 삭제 온클릭 이벤트
+ * 답글 수정 또는 삭제 온클릭 이벤트
  */
-export const COMMENT_ONCLICK_DELETE = '[##_rp_rep_onclick_delete_##]';
+export const COMMENT_ONCLICK_MODIFY_DELETE = '[##_rp_rep_onclick_delete_##]';
 
 /**
- * 답글 수정 온클릭 이벤트
+ * 대댓글 온클릭 이벤트
  */
-export const COMMENT_ONCLICK_CHANGE = '[##_rp_rep_onclick_reply_##]';
+export const COMMENT_ONCLICK_REPLY = '[##_rp_rep_onclick_reply_##]';

@@ -30,6 +30,8 @@ export const Permalink = (props: RepWrapperProps) => {
   );
 };
 
+Permalink.parent = 'Article';
+
 /**
  * 인덱스 페이지일 때만 표시되는 영역입니다.
  * (내부에서 사용하는 치환자는 `<Article>` 내부에서 사용하는 치환자와 동일합니다)
@@ -59,3 +61,5 @@ export const Index = (props: RepWrapperProps) => {
     </s_index_article_rep>
   );
 };
+
+Index.parent = 'Article';

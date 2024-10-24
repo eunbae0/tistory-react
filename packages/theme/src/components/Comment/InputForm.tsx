@@ -50,6 +50,13 @@ export const InputForm = (props: RepWrapperProps) => {
   );
 };
 
+InputForm.parent = 'Comment';
+InputForm.childVariables = [
+  'COMMENT_INPUT_ID',
+  'COMMENT_INPUT_COMMENT',
+  'COMMENT_INPUT_ONCLICK',
+];
+
 /**
  * 댓글주소. 댓글들을 구분하기위해 사용합니다. 한 화면에 있는 댓글들은 각각 고유의 값을 가지고 있습니다.
  */
@@ -61,14 +68,10 @@ export const COMMENT_INPUT_ID = '[##_article_rep_id_##]';
 export const COMMENT_INPUT_COMMENT = '[##_rp_input_comment_##]';
 
 export const InputTextArea = (props: RepTextareaProps) => {
-  return (
-    <textarea
-      data-onclick={COMMENT_INPUT_COMMENT}
-      name={COMMENT_INPUT_COMMENT}
-      {...props}
-    />
-  );
+  return <textarea name={COMMENT_INPUT_COMMENT} {...props} />;
 };
+
+InputTextArea.parent = 'InputForm';
 
 export const InputSubmit = (props: RepInputProps) => {
   const { label, value, ...rest } = props;
@@ -82,6 +85,8 @@ export const InputSubmit = (props: RepInputProps) => {
   );
 };
 
+InputSubmit.parent = 'InputForm';
+
 /**
  * 댓글 입력 온클릭 이벤트
  */
@@ -92,21 +97,35 @@ export const InputFormForMember = ({ children }: PropsWithChildren) => {
   return <s_rp_member>{children}</s_rp_member>;
 };
 
+InputFormForMember.parent = 'InputForm';
+InputFormForMember.childVariables = ['COMMENT_INPUT_IS_SECRET'];
+
 export const InputCheckboxForSecret = (props: RepInputProps) => {
   return <input type="checkbox" name={COMMENT_INPUT_IS_SECRET} {...props} />;
 };
+
+InputCheckboxForSecret.parent = 'InputFormForMember';
 
 /**
  * 비밀글 체크박스 이름
  */
 export const COMMENT_INPUT_IS_SECRET = '[##_rp_input_is_secret_##]';
 
-/** 로그인을 하지 않았을경우 보여지는 영역 */
+/** 로그인을 하지 않았을 경우 보여지는 영역 */
 export const InputFormForGuest = ({ children }: PropsWithChildren) => {
   return <s_rp_guest>{children}</s_rp_guest>;
 };
+InputFormForGuest.parent = 'InputFormForMember';
+InputFormForGuest.childVariables = [
+  'COMMENT_GUEST_INPUT_NAME',
+  'COMMENT_GUEST_NAME',
+  'COMMENT_GUEST_INPUT_PASSWORD',
+  'COMMENT_GUEST_PASSWORD',
+  'COMMENT_GUEST_INPUT_HOMEPAGE',
+  'COMMENT_GUEST_HOMEPAGE',
+];
 
-export const InputTextForGuest = (props: RepInputProps) => {
+export const InputNameForGuest = (props: RepInputProps) => {
   const { label, value, ...rest } = props;
   return (
     <input
@@ -117,6 +136,8 @@ export const InputTextForGuest = (props: RepInputProps) => {
     />
   );
 };
+
+InputNameForGuest.parent = 'InputFormForGuest';
 
 /**
  * 이름입력 박스 이름
@@ -140,6 +161,7 @@ export const InputPasswordForGuest = (props: RepInputProps) => {
   );
 };
 
+InputPasswordForGuest.parent = 'InputFormForGuest';
 /**
  * 비밀번호 입력 박스 이름
  */
@@ -154,7 +176,7 @@ export const InputHomepageForGuest = (props: RepInputProps) => {
   const { label, value, ...rest } = props;
   return (
     <input
-      type="password"
+      type="text"
       name={COMMENT_GUEST_INPUT_HOMEPAGE}
       value={COMMENT_GUEST_HOMEPAGE}
       {...rest}
@@ -162,6 +184,7 @@ export const InputHomepageForGuest = (props: RepInputProps) => {
   );
 };
 
+InputHomepageForGuest.parent = 'InputFormForGuest';
 /**
  * 홈페이지 입력 박스 이름
  */

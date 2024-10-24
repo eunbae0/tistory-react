@@ -18,6 +18,9 @@ export const Tag = (props: RepWrapperProps) => {
   );
 };
 
+Tag.parent = 'Article';
+Tag.childVariables = ['TAG_LABEL'];
+
 /**
  * 태그 반복 출력
  */
