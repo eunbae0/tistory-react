@@ -1,70 +1,71 @@
 {
-  "name": "tistory-react",
-  "version": "0.0.8-alpha.0",
-  "type": "module",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "bin": {
-    "tistory-react": "./bin/tistory-react.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eunbae0/tistory-react",
-    "directory": "packages/cli"
-  },
-  "exports": {
-    ".": {
-      "default": "./dist/index.js"
-    },
-    "./runtime": {
-      "default": "./runtime.ts"
-    },
-    "./theme/Article": {
-      "default": "./theme/article.ts"
-    },
-    "./theme/Comment": {
-      "default": "./theme/comment.ts"
-    },
-    "./theme/Sidebar": {
-      "default": "./theme/sidebar.ts"
-    },
-    "./theme/Tags": {
-      "default": "./theme/tags.ts"
-    },
-    "./config": {
-      "default": "./config.ts"
-    }
-  },
-  "scripts": {
-    "dev": "modern build -w",
-    "build": "modern build",
-    "build:watch": "modern build -w",
-    "test": "vitest run",
-    "reset": "rimraf ./**/node_modules",
-    "new": "modern new",
-    "upgrade": "modern upgrade"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@rsbuild/core": "1.0.1-beta.2",
-    "@tistory-react/core": "^0.0.8-alpha.0",
-    "@tistory-react/runtime": "0.0.8-alpha.0",
-    "@tistory-react/shared": "^0.0.8-alpha.0",
-    "@tistory-react/theme-default": "0.0.8-alpha.0",
-    "cac": "^6.7.14",
-    "chalk": "^5.3.0",
-    "chokidar": "^3.6.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.14.11",
-    "typescript": "^5.5.3"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
-  "gitHead": "5955246c00aab7a0e66bc7c7626f8eef2114d96a"
+	"name": "tistory-react",
+	"version": "0.0.8-alpha.0",
+	"type": "module",
+	"types": "./dist/index.d.ts",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"bin": {
+		"tistory-react": "./bin/tistory-react.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/eunbae0/tistory-react",
+		"directory": "packages/cli"
+	},
+	"exports": {
+		".": {
+			"default": "./dist/index.js"
+		},
+		"./runtime": {
+			"default": "./runtime.ts"
+		},
+		"./component/Article": {
+			"default": "./component/article.ts"
+		},
+		"./component/Comment": {
+			"default": "./component/comment.ts"
+		},
+		"./component/Sidebar": {
+			"default": "./component/sidebar.ts"
+		},
+		"./component/Tags": {
+			"default": "./component/tags.ts"
+		},
+		"./config": {
+			"default": "./config.ts"
+		}
+	},
+	"scripts": {
+		"dev": "modern build -w",
+		"build": "modern build",
+		"build:watch": "modern build -w",
+		"test": "vitest run",
+		"reset": "rimraf ./**/node_modules",
+		"new": "modern new",
+		"upgrade": "modern upgrade"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@rsbuild/core": "1.0.1-beta.2",
+		"@tistory-react/core": "^0.0.8-alpha.0",
+		"@tistory-react/component": "0.0.8-alpha.0",
+		"@tistory-react/runtime": "0.0.8-alpha.0",
+		"@tistory-react/shared": "^0.0.8-alpha.0",
+		"@tistory-react/theme-default": "0.0.8-alpha.0",
+		"cac": "^6.7.14",
+		"chalk": "^5.3.0",
+		"chokidar": "^3.6.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.14.11",
+		"typescript": "^5.5.3"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
+	"gitHead": "5955246c00aab7a0e66bc7c7626f8eef2114d96a"
 }
