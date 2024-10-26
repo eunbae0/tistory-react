@@ -3,8 +3,8 @@ import type { Rule } from 'eslint';
 import elementType from 'jsx-ast-utils/elementType';
 // import type ESTree from 'estree-jsx';
 import { report } from '../utils/report';
-import * as Theme from '@tistory-react/theme-default';
-import { tistoryComponents } from '../constants';
+import * as Theme from '@tistory-react/theme-default/Article';
+import { tistoryComponentNames } from '../constants';
 
 const messages = {
   tistoryVariable: '{{el}} requires <{{parentEl}}> as parent component.',
@@ -75,7 +75,7 @@ export const tistoryReactVariablesRule: Rule.RuleModule = {
             }),
         );
         console.log(aliasImport);
-        tistoryComponents.forEach(component =>
+        tistoryComponentNames.forEach(component =>
           Object.keys(Theme[component])
             .filter(key => 'parent' in Theme[component][key])
             .forEach(key => {
