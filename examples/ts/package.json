@@ -15,7 +15,7 @@
     "directory": "examples/ts"
   },
   "dependencies": {
-    "@tistory-react/eslint-plugin-tistory": "workspace:0.0.8-alpha.0",
+    "@tistory-react/eslint-plugin-tistory": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tistory-react": "workspace:*"

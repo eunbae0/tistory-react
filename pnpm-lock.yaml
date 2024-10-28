@@ -45,7 +45,7 @@ importers:
   examples/ts:
     dependencies:
       '@tistory-react/eslint-plugin-tistory':
-        specifier: workspace:0.0.8-alpha.0
+        specifier: workspace:*
         version: link:../../packages/eslint-plugin
       react:
         specifier: ^18.3.1
