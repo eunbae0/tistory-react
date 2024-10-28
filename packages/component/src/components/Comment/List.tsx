@@ -4,7 +4,7 @@ import type {
   RepOlProps,
   RepSpanProps,
   RepUlProps,
-} from '#theme/types';
+} from '#component/types';
 
 /**
  * 등록된 '댓글' 리스트를 출력할 영역입니다.

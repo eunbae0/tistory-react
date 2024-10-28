@@ -1,4 +1,4 @@
-import type { RepAnchorProps, RepLiProps, RepUlProps } from '#theme/types';
+import type { RepAnchorProps, RepLiProps, RepUlProps } from '#component/types';
 
 export const NoticeWrapper = (props: RepUlProps) => {
   return (

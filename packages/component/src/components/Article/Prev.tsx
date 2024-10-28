@@ -2,7 +2,7 @@ import type {
   PropsWithChildren,
   RepAnchorProps,
   RepImgProps,
-} from '#theme/types';
+} from '#component/types';
 
 /**
  * 이전 글 그룹치환자. 이전 글이 있는 경우 사용됩니다.

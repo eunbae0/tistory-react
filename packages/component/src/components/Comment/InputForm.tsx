@@ -3,7 +3,7 @@ import type {
   RepInputProps,
   RepTextareaProps,
   RepWrapperProps,
-} from '#theme/types';
+} from '#component/types';
 
 /**
  * 댓글을 달기 위한 입력폼을 출력합니다.

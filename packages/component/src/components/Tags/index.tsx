@@ -2,7 +2,7 @@ import type {
   PropsWithChildren,
   RepAnchorProps,
   RepWrapperProps,
-} from '#theme/types';
+} from '#component/types';
 
 /**
  * 태그 클라우드는 사용한 태그 리스트를 출력합니다.

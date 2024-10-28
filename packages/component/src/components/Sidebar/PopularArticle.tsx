@@ -3,7 +3,7 @@ import type {
   RepAnchorProps,
   RepImgProps,
   RepLiProps,
-} from '#theme/types';
+} from '#component/types';
 import {
   RECENT_POPULAR_ARTICLE_THUMBNAIL,
   RECENT_POPULAR_ARTICLE_LINK,

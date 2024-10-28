@@ -3,7 +3,7 @@ import type {
   RepAnchorProps,
   RepImgProps,
   RepLiProps,
-} from '#theme/types';
+} from '#component/types';
 
 /**
  * 최근 글을 반복 출력합니다.

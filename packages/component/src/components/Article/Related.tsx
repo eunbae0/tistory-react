@@ -2,7 +2,7 @@ import type {
   PropsWithChildren,
   RepAnchorProps,
   RepImgProps,
-} from '#theme/types';
+} from '#component/types';
 
 export const Related = ({ children }: PropsWithChildren) => {
   return <s_article_related>{children}</s_article_related>;

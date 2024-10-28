@@ -15,7 +15,7 @@
 		"src",
 		"vitest.config.ts",
 		"modern.config.ts",
-		"runtime.ts",
+		"devtool.ts",
 		"component/*.ts",
 		"config.ts"
 	],

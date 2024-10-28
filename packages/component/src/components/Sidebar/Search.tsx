@@ -1,4 +1,4 @@
-import type { RepInputProps, RepWrapperProps } from '#theme/types';
+import type { RepInputProps, RepWrapperProps } from '#component/types';
 
 /**
  * 최근 댓글을 반복 출력합니다.

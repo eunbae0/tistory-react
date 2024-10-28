@@ -1,4 +1,4 @@
-import type { RepWrapperProps } from '#theme/types';
+import type { RepWrapperProps } from '#component/types';
 
 /**
  * 퍼머링크 페이지일 때만 표시되는 영역입니다.

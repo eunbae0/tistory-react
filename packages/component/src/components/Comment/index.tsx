@@ -1,4 +1,4 @@
-import type { RepWrapperProps } from '#theme/types';
+import type { RepWrapperProps } from '#component/types';
 import {
   InputCheckboxForSecret,
   InputForm,

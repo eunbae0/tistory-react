@@ -1,4 +1,4 @@
-import type { RepWrapperProps } from '#theme/types';
+import type { RepWrapperProps } from '#component/types';
 
 /**
  * 글과 관련된 태그가 출력되는 영역입니다.

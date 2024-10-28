@@ -3,7 +3,7 @@ import type {
   RepAnchorProps,
   RepImgProps,
   RepWrapperProps,
-} from '#theme/types';
+} from '#component/types';
 import {
   Admin,
   AdminModifyLink,

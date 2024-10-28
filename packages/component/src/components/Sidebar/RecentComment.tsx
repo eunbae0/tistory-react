@@ -1,4 +1,4 @@
-import type { RepAnchorProps, RepLiProps } from '#theme/types';
+import type { RepAnchorProps, RepLiProps } from '#component/types';
 
 /**
  * 최근 댓글을 반복 출력합니다.

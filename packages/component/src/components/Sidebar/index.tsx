@@ -1,4 +1,4 @@
-import type { RepSectionProps, RepWrapperProps } from '#theme/types';
+import type { RepSectionProps, RepWrapperProps } from '#component/types';
 import { NoticeWrapper, Notice, NoticeLink } from './Notice';
 import {
   PopularArticle,

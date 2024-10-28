@@ -1,19 +1,19 @@
 {
-  "name": "@tistory-react/theme-default",
+  "name": "@tistory-react/component",
   "version": "0.0.8-alpha.0",
-  "description": "The Default Theme of Tistory-react Framework, Provide Tistory Components",
+  "description": "The Default Component of Tistory-react Framework, Provide Tistory Components",
   "bugs": "https://github.com/eunbae0/tistory-react/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/eunbae0/tistory-react",
-    "directory": "packages/theme-default"
+    "directory": "packages/component"
   },
   "license": "MIT",
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "imports": {
-    "#theme/*": "./src/*"
+    "#component/*": "./src/*"
   },
   "exports": {
     ".": {
