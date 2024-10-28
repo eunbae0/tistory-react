@@ -1,19 +1,21 @@
-import {
-	Article as ArticleService,
-	Comment,
-	ADMIM_CURRENT_STATE,
-} from "tistory-react/theme";
+import { Article, ARTICLE_TITLE, ARTICLE_CATEGORY, ARTICLE_DATE, ARTICLE_DESCRIPTION } from 'tistory-react/theme/Article';
 
-export default function Article() {
-	return (
-		<ArticleService>
-			<ArticleService.ThumbnailImg>
-				
-			</ArticleService.ThumbnailImg>
-			<Comment.InputSubmit />
-			<Comment></Comment>
-			<Comment.InputTextArea />
-			{ADMIM_CURRENT_STATE}
-		</ArticleService>
-	);
+export default function ArticleService() {
+  return (
+    <Article className="articleWrap">
+    <div className="titleWrap">
+      <h2>
+        <Article.ArticleLink>{ARTICLE_TITLE}</Article.ArticleLink>
+      </h2>
+      <div className="category">
+        <Article.CategoryLink>{ARTICLE_CATEGORY}</Article.CategoryLink>
+      </div>
+      <div className="date">{ARTICLE_DATE}</div>
+    </div>
+
+    <div className="article">
+      {ARTICLE_DESCRIPTION}
+    </div>
+  </Article>
+  );
 }
