@@ -91,19 +91,19 @@ importers:
         specifier: 1.0.1-beta.2
         version: 1.0.1-beta.2
       '@tistory-react/component':
-        specifier: 0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../component
       '@tistory-react/core':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../core
       '@tistory-react/devtool':
-        specifier: 0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../devtool
       '@tistory-react/runtime':
-        specifier: 0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../runtime
       '@tistory-react/shared':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../shared
       cac:
         specifier: ^6.7.14
@@ -125,10 +125,10 @@ importers:
   packages/component:
     dependencies:
       '@tistory-react/runtime':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../runtime
       '@tistory-react/shared':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../shared
       react:
         specifier: ^18.3.1
@@ -159,10 +159,10 @@ importers:
         specifier: 1.0.1-beta.4
         version: 1.0.1-beta.4(@rsbuild/core@1.0.1-beta.2)
       '@tistory-react/runtime':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../runtime
       '@tistory-react/shared':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../shared
       '@tistory-react/theme-default':
         specifier: 0.0.8-alpha.0
@@ -244,10 +244,10 @@ importers:
   packages/devtool:
     dependencies:
       '@tistory-react/runtime':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../runtime
       '@tistory-react/shared':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../shared
       react:
         specifier: ^18.3.1
@@ -312,7 +312,7 @@ importers:
   packages/runtime:
     dependencies:
       '@tistory-react/shared':
-        specifier: ^0.0.8-alpha.0
+        specifier: ^0.0.9-alpha.0
         version: link:../shared
       react:
         specifier: ^18.3.1
