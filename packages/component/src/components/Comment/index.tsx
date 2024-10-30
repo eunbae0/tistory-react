@@ -36,7 +36,7 @@ import {
  */
 export const Comment = (props: RepWrapperProps) => {
   return (
-    <s_rp>
+    <s_rp data-is-tistory-tag>
       <div {...props} />
     </s_rp>
   );

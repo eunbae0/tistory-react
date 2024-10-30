@@ -24,14 +24,14 @@ import type {
  */
 export const Tags = (props: RepWrapperProps) => {
   return (
-    <s_tag>
+    <s_tag data-is-tistory-tag>
       <div {...props} />
     </s_tag>
   );
 };
 
 const Rep = ({ children }: PropsWithChildren) => {
-  return <s_tag_rep>{children}</s_tag_rep>;
+  return <s_tag_rep data-is-tistory-tag>{children}</s_tag_rep>;
 };
 
 const Anchor = (props: RepAnchorProps) => {

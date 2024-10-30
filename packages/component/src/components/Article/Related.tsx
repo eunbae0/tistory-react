@@ -5,7 +5,7 @@ import type {
 } from '#component/types';
 
 export const Related = ({ children }: PropsWithChildren) => {
-  return <s_article_related>{children}</s_article_related>;
+  return <s_article_related data-is-tistory-tag>{children}</s_article_related>;
 };
 
 Related.parent = 'Article';
@@ -47,7 +47,7 @@ export const RELATED_ARTICLE_DATE = '[##_article_related_rep_date_##]';
  */
 export const RelatedThumbnail = ({ children }: PropsWithChildren) => {
   return (
-    <s_article_related_rep_thumbnail>
+    <s_article_related_rep_thumbnail data-is-tistory-tag>
       {children}
     </s_article_related_rep_thumbnail>
   );

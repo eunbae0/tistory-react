@@ -44,7 +44,7 @@ import type {
  */
 export const InputForm = (props: RepWrapperProps) => {
   return (
-    <s_rp_input_form>
+    <s_rp_input_form data-is-tistory-tag>
       <div {...props} />
     </s_rp_input_form>
   );
@@ -94,7 +94,7 @@ export const COMMENT_INPUT_ONCLICK = '[##_rp_onclick_submit_##]';
 
 /** 로그인을 하지 않았거나 블로그 소유자가 아닌경우 보여지는 영역 */
 export const InputFormForMember = ({ children }: PropsWithChildren) => {
-  return <s_rp_member>{children}</s_rp_member>;
+  return <s_rp_member data-is-tistory-tag>{children}</s_rp_member>;
 };
 
 InputFormForMember.parent = 'InputForm';
@@ -113,7 +113,7 @@ export const COMMENT_INPUT_IS_SECRET = '[##_rp_input_is_secret_##]';
 
 /** 로그인을 하지 않았을 경우 보여지는 영역 */
 export const InputFormForGuest = ({ children }: PropsWithChildren) => {
-  return <s_rp_guest>{children}</s_rp_guest>;
+  return <s_rp_guest data-is-tistory-tag>{children}</s_rp_guest>;
 };
 InputFormForGuest.parent = 'InputFormForMember';
 InputFormForGuest.childVariables = [

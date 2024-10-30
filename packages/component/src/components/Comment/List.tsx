@@ -61,7 +61,7 @@ import type {
  */
 export const ListWrapper = (props: RepOlProps) => {
   return (
-    <s_rp_container>
+    <s_rp_container data-is-tistory-tag>
       <ol {...props} />
     </s_rp_container>
   );
@@ -71,7 +71,7 @@ ListWrapper.parent = 'Comment';
 
 export const List = (props: RepLiProps) => {
   return (
-    <s_rp_rep>
+    <s_rp_rep data-is-tistory-tag>
       <li id={COMMENT_ID} {...props} />
     </s_rp_rep>
   );
@@ -92,7 +92,7 @@ List.childVariables = [
 
 export const ReplyWrapper = (props: RepUlProps) => {
   return (
-    <s_rp2_container>
+    <s_rp2_container data-is-tistory-tag>
       <ul {...props} />
     </s_rp2_container>
   );
@@ -102,7 +102,7 @@ ReplyWrapper.parent = 'List';
 
 export const Reply = (props: RepLiProps) => {
   return (
-    <s_rp2_rep>
+    <s_rp2_rep data-is-tistory-tag>
       <li id={COMMENT_ID} {...props} />
     </s_rp2_rep>
   );

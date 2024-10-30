@@ -45,7 +45,7 @@ import { Next, NextLink, NextThumbNail, NextThumbNailImg } from './Next';
  */
 export const Article = (props: RepWrapperProps) => {
   return (
-    <s_article_rep>
+    <s_article_rep data-is-tistory-tag>
       <div {...props} />
     </s_article_rep>
   );
@@ -82,7 +82,11 @@ RedirectCommentLink.parent = 'Article';
  * 대표 이미지 썸네일이 표시되는 영역 (대표 이미지가 없는 경우 표시되지 않음)
  */
 const Thumbnail = ({ children }: PropsWithChildren) => {
-  return <s_article_rep_thumbnail>{children}</s_article_rep_thumbnail>;
+  return (
+    <s_article_rep_thumbnail data-is-tistory-tag>
+      {children}
+    </s_article_rep_thumbnail>
+  );
 };
 
 Thumbnail.parent = 'Article';
@@ -101,7 +105,7 @@ ThumbnailImg.parent = 'Thumbnail';
  * 댓글의 갯수를 출력하는 영역
  */
 const CommentCount = ({ children }: PropsWithChildren) => {
-  return <s_rp_count>{children}</s_rp_count>;
+  return <s_rp_count data-is-tistory-tag>{children}</s_rp_count>;
 };
 
 CommentCount.parent = 'Article';

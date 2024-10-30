@@ -15,6 +15,7 @@ import {
   XML_DECLARATION,
   TEMP_ONCLICK_ATTR,
   TEMP_ONKEYPRESS_ATTR,
+  TISTORY_TAG_IDENTIFIER,
 } from './constants';
 import { initRsbuild } from './initRsbuild';
 import { convertCdataObj } from './utils/convertXml';
@@ -119,14 +120,8 @@ export async function renderHtml(
         `${HTML_START_TAG} lang="${config.lang ?? 'ko'}"`,
       )
       .replaceAll(TEMP_ONCLICK_ATTR, 'onclick')
-      .replaceAll(TEMP_ONKEYPRESS_ATTR, 'onkeypress');
-
-    // if (helmet?.bodyAttributes) {
-    //   html = html.replace(
-    //     BODY_START_TAG,
-    //     `${}`,
-    //   );
-    // }
+      .replaceAll(TEMP_ONKEYPRESS_ATTR, 'onkeypress')
+      .replaceAll(TISTORY_TAG_IDENTIFIER, '');
 
     const fileName = 'skin.html';
     await fs.ensureDir(join(outputPath, dirname(fileName)));

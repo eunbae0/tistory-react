@@ -12,7 +12,7 @@ import type { RepWrapperProps } from '#component/types';
  */
 export const Tag = (props: RepWrapperProps) => {
   return (
-    <s_tag_label>
+    <s_tag_label data-is-tistory-tag>
       <div {...props} />
     </s_tag_label>
   );

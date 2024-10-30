@@ -2,7 +2,7 @@ import type { RepAnchorProps, RepLiProps, RepUlProps } from '#component/types';
 
 export const NoticeWrapper = (props: RepUlProps) => {
   return (
-    <s_rct_notice>
+    <s_rct_notice data-is-tistory-tag>
       <ul {...props} />
     </s_rct_notice>
   );
@@ -10,7 +10,7 @@ export const NoticeWrapper = (props: RepUlProps) => {
 
 export const Notice = (props: RepLiProps) => {
   return (
-    <s_rct_notice_rep>
+    <s_rct_notice_rep data-is-tistory-tag>
       <li {...props} />
     </s_rct_notice_rep>
   );

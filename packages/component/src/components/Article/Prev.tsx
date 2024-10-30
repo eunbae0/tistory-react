@@ -17,7 +17,7 @@ import type {
   ```
  */
 export const Prev = ({ children }: PropsWithChildren) => {
-  return <s_article_prev>{children}</s_article_prev>;
+  return <s_article_prev data-is-tistory-tag>{children}</s_article_prev>;
 };
 
 Prev.parent = 'Article';
@@ -33,7 +33,11 @@ PrevLink.parent = 'Prev';
  * 대표 이미지 썸네일이 표시되는 그룹치환자 (대표 이미지가 있는 경우 표시)
  */
 export const PrevThumbNail = ({ children }: PropsWithChildren) => {
-  return <s_article_prev_thumbnail>{children}</s_article_prev_thumbnail>;
+  return (
+    <s_article_prev_thumbnail data-is-tistory-tag>
+      {children}
+    </s_article_prev_thumbnail>
+  );
 };
 
 PrevThumbNail.parent = 'Prev';

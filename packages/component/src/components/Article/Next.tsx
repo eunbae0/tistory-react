@@ -17,7 +17,7 @@ import type {
   ```
  */
 export const Next = ({ children }: PropsWithChildren) => {
-  return <s_article_next>{children}</s_article_next>;
+  return <s_article_next data-is-tistory-tag>{children}</s_article_next>;
 };
 
 Next.parent = 'Article';
@@ -33,7 +33,11 @@ NextLink.parent = 'Next';
  * 대표 이미지 썸네일이 표시되는 그룹치환자 (대표 이미지가 있는 경우 표시)
  */
 export const NextThumbNail = ({ children }: PropsWithChildren) => {
-  return <s_article_next_thumbnail>{children}</s_article_next_thumbnail>;
+  return (
+    <s_article_next_thumbnail data-is-tistory-tag>
+      {children}
+    </s_article_next_thumbnail>
+  );
 };
 
 NextThumbNail.parent = 'Next';

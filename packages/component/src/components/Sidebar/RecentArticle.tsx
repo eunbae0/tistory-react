@@ -10,7 +10,7 @@ import type {
  */
 export const RecentArticle = (props: RepLiProps) => {
   return (
-    <s_rctps_rep>
+    <s_rctps_rep data-is-tistory-tag>
       <li {...props} />
     </s_rctps_rep>
   );
@@ -20,7 +20,11 @@ export const RecentArticle = (props: RepLiProps) => {
  * 대표 이미지가 있는 경우 치환
  */
 export const RecentArticleThumbnail = ({ children }: PropsWithChildren) => {
-  return <s_rctps_rep_thumbnail>{children}</s_rctps_rep_thumbnail>;
+  return (
+    <s_rctps_rep_thumbnail data-is-tistory-tag>
+      {children}
+    </s_rctps_rep_thumbnail>
+  );
 };
 
 export const RecentArticleThumbnailImg = (props: RepImgProps) => {

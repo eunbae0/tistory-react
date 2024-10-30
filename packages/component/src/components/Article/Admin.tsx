@@ -4,7 +4,7 @@ import type { PropsWithChildren, RepAnchorProps } from '#component/types';
  * 글 관리기능 그룹치환자 (관리 권한 있는 경우만 표시됩니다)
  */
 export const Admin = ({ children }: PropsWithChildren) => {
-  return <s_ad_div>{children}</s_ad_div>;
+  return <s_ad_div data-is-tistory-tag>{children}</s_ad_div>;
 };
 
 Admin.parent = 'Article';

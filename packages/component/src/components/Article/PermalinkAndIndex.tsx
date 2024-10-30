@@ -24,7 +24,7 @@ import type { RepWrapperProps } from '#component/types';
  */
 export const Permalink = (props: RepWrapperProps) => {
   return (
-    <s_permalink_article_rep>
+    <s_permalink_article_rep data-is-tistory-tag>
       <div {...props} />
     </s_permalink_article_rep>
   );
@@ -56,7 +56,7 @@ Permalink.parent = 'Article';
  */
 export const Index = (props: RepWrapperProps) => {
   return (
-    <s_index_article_rep>
+    <s_index_article_rep data-is-tistory-tag>
       <div {...props} />
     </s_index_article_rep>
   );

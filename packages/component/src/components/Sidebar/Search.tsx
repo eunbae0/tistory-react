@@ -5,7 +5,7 @@ import type { RepInputProps, RepWrapperProps } from '#component/types';
  */
 export const Search = (props: RepWrapperProps) => {
   return (
-    <s_rctrp_rep>
+    <s_rctrp_rep data-is-tistory-tag>
       <div {...props} />
     </s_rctrp_rep>
   );

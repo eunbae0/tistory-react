@@ -22,7 +22,7 @@ import { Search, SearchInput, SearchInputSubmit } from './Search';
  */
 export const Sidebar = (props: RepWrapperProps) => {
   return (
-    <s_sidebar>
+    <s_sidebar data-is-tistory-tag>
       <div {...props} />
     </s_sidebar>
   );
@@ -33,7 +33,7 @@ export const Sidebar = (props: RepWrapperProps) => {
  */
 const El = (props: RepSectionProps) => {
   return (
-    <s_sidebar_element>
+    <s_sidebar_element data-is-tistory-tag>
       <section {...props} />
     </s_sidebar_element>
   );

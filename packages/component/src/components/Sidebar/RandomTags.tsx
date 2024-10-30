@@ -5,7 +5,7 @@ import type { RepAnchorProps, RepLiProps } from '#component/types';
  */
 export const RandomTags = (props: RepLiProps) => {
   return (
-    <s_random_tags>
+    <s_random_tags data-is-tistory-tag>
       <li {...props} />
     </s_random_tags>
   );

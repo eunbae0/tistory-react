@@ -5,7 +5,7 @@ import type { RepAnchorProps, RepLiProps } from '#component/types';
  */
 export const RecentComment = (props: RepLiProps) => {
   return (
-    <s_rctrp_rep>
+    <s_rctrp_rep data-is-tistory-tag>
       <li {...props} />
     </s_rctrp_rep>
   );
