@@ -158,6 +158,9 @@ importers:
       '@rsbuild/plugin-react':
         specifier: 1.0.1-beta.4
         version: 1.0.1-beta.4(@rsbuild/core@1.0.1-beta.2)
+      '@tistory-react/devtool':
+        specifier: workspace:^0.0.9-alpha.0
+        version: link:../devtool
       '@tistory-react/runtime':
         specifier: ^0.0.9-alpha.0
         version: link:../runtime

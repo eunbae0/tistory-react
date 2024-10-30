@@ -37,6 +37,7 @@
   "dependencies": {
     "@rsbuild/core": "1.0.1-beta.2",
     "@rsbuild/plugin-react": "1.0.1-beta.4",
+    "@tistory-react/devtool": "workspace:^0.0.9-alpha.0",
     "@tistory-react/runtime": "^0.0.9-alpha.0",
     "@tistory-react/shared": "^0.0.9-alpha.0",
     "@tistory-react/theme-default": "0.0.8-alpha.0",
