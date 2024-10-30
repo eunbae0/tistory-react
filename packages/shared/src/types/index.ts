@@ -80,6 +80,16 @@ export interface UserConfig {
    * 스킨에 필요한 정보를 담고 있는 xml 파일의 설정
    */
   skinInfoConfig?: TistorySkinConfig;
+  /**
+   * dev mode settings
+   */
+  dev?: {
+    /**
+     * 티스토리 치환자 -> 기본 예시 문구로의 치환 여부
+     * @default enableVariableSwap = true
+     */
+    enableVariableSwap?: boolean;
+  };
 }
 
 export * from './tistory';

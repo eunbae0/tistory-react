@@ -31,6 +31,7 @@
   "dependencies": {
     "@tistory-react/runtime": "^0.0.9-alpha.0",
     "@tistory-react/shared": "^0.0.9-alpha.0",
+    "@tistory-react/component": "^0.0.9-alpha.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

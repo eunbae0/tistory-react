@@ -55,7 +55,7 @@ export const Article = (props: RepWrapperProps) => {
  * 블로그 글의 고유 주소 링크
  */
 const ArticleLink = (props: RepAnchorProps) => {
-  return <a href="[##_article_rep_link_##]" {...props} />;
+  return <a href={ARTICLE_LINK} {...props} />;
 };
 
 ArticleLink.parent = 'Article';
@@ -64,7 +64,7 @@ ArticleLink.parent = 'Article';
  * 카테고리 링크
  */
 const CategoryLink = (props: RepAnchorProps) => {
-  return <a href="[##_article_rep_category_link_##]" {...props} />;
+  return <a href={ARTICLE_CATEGORY_LINK} {...props} />;
 };
 
 CategoryLink.parent = 'Article';
@@ -73,7 +73,7 @@ CategoryLink.parent = 'Article';
  * 댓글을 열고 닫는 온클릭 이벤트
  */
 const RedirectCommentLink = (props: RepAnchorProps) => {
-  return <a href="[##_article_rep_rp_link_##]" {...props} />;
+  return <a href={ARTICLE_REDIRECT_COMMENT_LINK} {...props} />;
 };
 
 RedirectCommentLink.parent = 'Article';
@@ -115,6 +115,16 @@ CommentCount.childVariables = ['ARTICLE_COMMENT_COUNT'];
  * 블로그 글의 제목
  */
 export const ARTICLE_TITLE = '[##_article_rep_title_##]';
+
+/**
+ * 블로그 글의 고유 주소
+ */
+export const ARTICLE_LINK = '[##_article_rep_link_##]';
+
+/**
+ * 카테고리 링크
+ */
+export const ARTICLE_CATEGORY_LINK = '[##_article_rep_category_link_##]';
 
 /**
  * 카테고리 명
@@ -172,6 +182,11 @@ export const ARTICLE_AUTHOR = '[##_article_rep_author_##]';
 export const ARTICLE_DESCRIPTION = '[##_article_rep_desc_##]';
 
 /**
+ * 댓글을 열고 닫는 온클릭 이벤트
+ */
+export const ARTICLE_REDIRECT_COMMENT_LINK = '[##_article_rep_rp_link_##]';
+
+/**
  * 대표 이미지 썸네일 주소
  */
 export const ARTICLE_THUMBNAIL_URL = '[##_article_rep_thumbnail_url_##]';
@@ -220,7 +235,9 @@ Article.NextThumbNailImg = NextThumbNailImg;
 
 Article.childVariables = [
   'ARTICLE_TITLE',
+  'ARTICLE_LINK',
   'ARTICLE_CATEGORY',
+  'ARTICLE_CATEGORY_LINK',
   'ARTICLE_AUTHOR',
   'ARTICLE_DATE',
   'ARTICLE_DATE_DAY',
@@ -230,6 +247,7 @@ Article.childVariables = [
   'ARTICLE_DATE_SECOND',
   'ARTICLE_DATE_YEAR',
   'ARTICLE_DESCRIPTION',
+  'ARTICLE_REDIRECT_COMMENT_LINK',
   'ARTICLE_SIMPLE_DATE',
 ];
 

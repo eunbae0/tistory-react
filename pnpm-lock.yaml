@@ -246,6 +246,9 @@ importers:
 
   packages/devtool:
     dependencies:
+      '@tistory-react/component':
+        specifier: ^0.0.9-alpha.0
+        version: link:../component
       '@tistory-react/runtime':
         specifier: ^0.0.9-alpha.0
         version: link:../runtime

@@ -4,6 +4,7 @@
     "declaration": false,
     "strict": false,
     "module": "ESNext",
+    "moduleResolution": "Bundler",
     "target": "ESNext",
     "jsx": "react-jsx",
     "baseUrl": "src",
@@ -12,8 +13,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "./src": ["./*"]
-    }
+			"@/*": ["./src/*"]
+		},
   },
   "include": [
     "src",

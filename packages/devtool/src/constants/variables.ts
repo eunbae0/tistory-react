@@ -1,0 +1,91 @@
+import {
+  ARTICLE_TITLE,
+  ARTICLE_LINK,
+  ARTICLE_CATEGORY,
+  ARTICLE_CATEGORY_LINK,
+  ARTICLE_DATE,
+  ARTICLE_SIMPLE_DATE,
+  ARTICLE_DATE_YEAR,
+  ARTICLE_DATE_MONTH,
+  ARTICLE_DATE_DAY,
+  ARTICLE_DATE_HOUR,
+  ARTICLE_DATE_MINUTE,
+  ARTICLE_DATE_SECOND,
+  ARTICLE_AUTHOR,
+  ARTICLE_DESCRIPTION,
+  ARTICLE_REDIRECT_COMMENT_LINK,
+  ARTICLE_THUMBNAIL_URL,
+  ARTICLE_THUMBNAIL_RAW_URL,
+  ARTICLE_COMMENT_COUNT,
+  ADMIN_CURRENT_STATE,
+  ADMIN_NEXT_STATE,
+  TAG_LABEL,
+  RELATED_ARTICLE_TYPE,
+  RELATED_ARTICLE_LINK,
+  RELATED_ARTICLE_TITLE,
+  RELATED_ARTICLE_DATE,
+  RELATED_THUMBNAIL_LINK,
+  PREV_TYPE,
+  PREV_LINK,
+  PREV_TITLE,
+  PREV_DATE,
+  NEXT_TYPE,
+  NEXT_LINK,
+  NEXT_TITLE,
+  NEXT_DATE,
+} from '@tistory-react/component/Article';
+
+import type { ConvertedVariables } from 'types';
+import {
+  DEFAULT_AUTHOR,
+  DEFAULT_CATEGORY,
+  DEFAULT_DATE,
+  DEFAULT_DAY,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_HOUR,
+  DEFAULT_HREF_LINK,
+  DEFAULT_IMAGE_THUMBNAIL_URL,
+  DEFAULT_MINUTE,
+  DEFAULT_MONTH,
+  DEFAULT_SECOND,
+  DEFAULT_TITLE,
+  DEFAULT_TYPE,
+  DEFAULT_YEAR,
+} from './default';
+
+export const convertedVariables: ConvertedVariables = new Map();
+
+convertedVariables.set(ARTICLE_TITLE, DEFAULT_TITLE);
+convertedVariables.set(ARTICLE_LINK, DEFAULT_HREF_LINK);
+convertedVariables.set(ARTICLE_CATEGORY, DEFAULT_CATEGORY);
+convertedVariables.set(ARTICLE_CATEGORY_LINK, DEFAULT_HREF_LINK);
+convertedVariables.set(ARTICLE_DATE, DEFAULT_DATE);
+convertedVariables.set(ARTICLE_SIMPLE_DATE, DEFAULT_DATE); // TODO: Check & Change
+convertedVariables.set(ARTICLE_DATE_YEAR, DEFAULT_YEAR);
+convertedVariables.set(ARTICLE_DATE_MONTH, DEFAULT_MONTH);
+convertedVariables.set(ARTICLE_DATE_DAY, DEFAULT_DAY);
+convertedVariables.set(ARTICLE_DATE_HOUR, DEFAULT_HOUR);
+convertedVariables.set(ARTICLE_DATE_MINUTE, DEFAULT_MINUTE);
+convertedVariables.set(ARTICLE_DATE_SECOND, DEFAULT_SECOND);
+convertedVariables.set(ARTICLE_AUTHOR, DEFAULT_AUTHOR);
+convertedVariables.set(ARTICLE_DESCRIPTION, DEFAULT_DESCRIPTION);
+convertedVariables.set(ARTICLE_REDIRECT_COMMENT_LINK, DEFAULT_HREF_LINK);
+convertedVariables.set(ARTICLE_THUMBNAIL_URL, DEFAULT_IMAGE_THUMBNAIL_URL);
+convertedVariables.set(ARTICLE_THUMBNAIL_RAW_URL, DEFAULT_IMAGE_THUMBNAIL_URL);
+convertedVariables.set(ARTICLE_COMMENT_COUNT, '8');
+convertedVariables.set(ADMIN_CURRENT_STATE, '공개');
+convertedVariables.set(ADMIN_NEXT_STATE, '비공개');
+convertedVariables.set(TAG_LABEL, '태그 1 태그 2 태그 3'); // TODO : Check & Change
+convertedVariables.set(RELATED_ARTICLE_TYPE, DEFAULT_TYPE);
+convertedVariables.set(RELATED_ARTICLE_LINK, '/article');
+convertedVariables.set(RELATED_ARTICLE_TITLE, DEFAULT_TITLE);
+convertedVariables.set(RELATED_ARTICLE_DATE, DEFAULT_DATE);
+convertedVariables.set(RELATED_THUMBNAIL_LINK, DEFAULT_IMAGE_THUMBNAIL_URL);
+convertedVariables.set(PREV_TYPE, DEFAULT_TYPE);
+convertedVariables.set(PREV_LINK, DEFAULT_HREF_LINK);
+convertedVariables.set(PREV_TITLE, DEFAULT_TITLE);
+convertedVariables.set(PREV_DATE, DEFAULT_DATE);
+convertedVariables.set(NEXT_TYPE, DEFAULT_TYPE);
+convertedVariables.set(NEXT_LINK, DEFAULT_HREF_LINK);
+convertedVariables.set(NEXT_TITLE, DEFAULT_TITLE);
+convertedVariables.set(NEXT_DATE, DEFAULT_DATE);

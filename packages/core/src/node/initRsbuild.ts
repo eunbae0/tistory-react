@@ -184,6 +184,9 @@ async function createInternalBuildConfig(
           alias: reactCSRAlias,
           define: {
             'process.env.__SSR__': JSON.stringify(false),
+            'process.env.__ENABLE_VARIABLE_SWAP___': JSON.stringify(
+              config.dev?.enableVariableSwap ?? true,
+            ),
           },
         },
         output: {

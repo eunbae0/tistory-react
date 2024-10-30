@@ -1,1 +1,1 @@
-export const index = 'index'
+export * from './DevTools';
