@@ -18,6 +18,7 @@ export const DevTools = () => {
   return (
     <div>
       devtools
+      <p className="text-3xl font-bold text-black p-1">hello world</p>
       <button>치환</button>
     </div>
   );
