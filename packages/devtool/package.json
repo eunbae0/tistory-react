@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/devtool",
-  "version": "0.0.10-alpha.0",
+  "version": "0.0.11-alpha.0",
   "description": "DevTools of Tistory-react Framework",
   "bugs": "https://github.com/eunbae0/tistory-react/issues",
   "repository": {
@@ -30,7 +30,7 @@
     "node": ">=14.17.6"
   },
   "dependencies": {
-    "@tistory-react/component": "^0.0.10-alpha.0",
+    "@tistory-react/component": "^0.0.11-alpha.0",
     "@tistory-react/runtime": "^0.0.10-alpha.0",
     "@tistory-react/shared": "^0.0.10-alpha.0",
     "react": "^18.3.1",

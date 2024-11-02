@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/eslint-plugin-tistory",
-  "version": "0.0.10-alpha.0",
+  "version": "0.0.11-alpha.0",
   "description": "",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -30,7 +30,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "@tistory-react/component": "^0.0.10-alpha.0",
+    "@tistory-react/component": "^0.0.11-alpha.0",
     "eslint-plugin-react": "^7.35.2",
     "jsx-ast-utils": "^3.3.5"
   },

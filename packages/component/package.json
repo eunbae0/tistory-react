@@ -1,6 +1,6 @@
 {
   "name": "@tistory-react/component",
-  "version": "0.0.10-alpha.0",
+  "version": "0.0.11-alpha.0",
   "description": "The Default Component of Tistory-react Framework, Provide Tistory Components",
   "bugs": "https://github.com/eunbae0/tistory-react/issues",
   "repository": {

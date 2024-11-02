@@ -91,13 +91,13 @@ importers:
         specifier: 1.0.1-beta.2
         version: 1.0.1-beta.2
       '@tistory-react/component':
-        specifier: ^0.0.10-alpha.0
+        specifier: ^0.0.11-alpha.0
         version: link:../component
       '@tistory-react/core':
-        specifier: ^0.0.10-alpha.0
+        specifier: ^0.0.11-alpha.0
         version: link:../core
       '@tistory-react/devtool':
-        specifier: ^0.0.10-alpha.0
+        specifier: ^0.0.11-alpha.0
         version: link:../devtool
       '@tistory-react/runtime':
         specifier: ^0.0.10-alpha.0
@@ -159,7 +159,7 @@ importers:
         specifier: 1.0.1-beta.4
         version: 1.0.1-beta.4(@rsbuild/core@1.0.1-beta.2)
       '@tistory-react/devtool':
-        specifier: workspace:^0.0.10-alpha.0
+        specifier: workspace:^0.0.11-alpha.0
         version: link:../devtool
       '@tistory-react/runtime':
         specifier: ^0.0.10-alpha.0
@@ -244,7 +244,7 @@ importers:
   packages/devtool:
     dependencies:
       '@tistory-react/component':
-        specifier: ^0.0.10-alpha.0
+        specifier: ^0.0.11-alpha.0
         version: link:../component
       '@tistory-react/runtime':
         specifier: ^0.0.10-alpha.0
@@ -281,7 +281,7 @@ importers:
   packages/eslint-plugin:
     dependencies:
       '@tistory-react/component':
-        specifier: ^0.0.10-alpha.0
+        specifier: ^0.0.11-alpha.0
         version: link:../component
       eslint-plugin-react:
         specifier: ^7.35.2
