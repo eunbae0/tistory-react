@@ -24,16 +24,16 @@
 			"default": "./devtool.ts"
 		},
 		"./component/Article": {
-			"default": "./component/article.ts"
+			"default": "./article.ts"
 		},
 		"./component/Comment": {
-			"default": "./component/comment.ts"
+			"default": "./comment.ts"
 		},
 		"./component/Sidebar": {
-			"default": "./component/sidebar.ts"
+			"default": "./sidebar.ts"
 		},
 		"./component/Tags": {
-			"default": "./component/tags.ts"
+			"default": "./tags.ts"
 		},
 		"./config": {
 			"default": "./config.ts"
