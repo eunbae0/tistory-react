@@ -25,7 +25,7 @@ cli.command('', 'Create a new tistory-react project').action(async () => {
       name: 'siteDesc',
       type: 'text',
       message: 'Site Description',
-      initial: 'Awesome Skin Made of Tistory-react',
+      initial: 'Awesome Skin Made by Tistory-react',
     },
   ];
 
