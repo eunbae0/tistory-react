@@ -7,12 +7,6 @@ export default defineConfig({
   },
   buildConfig: [
     {
-      input: { index: './src/index.ts' },
-      outDir: 'dist',
-      sourceMap: true,
-      format: 'esm',
-    },
-    {
       sourceDir: 'src/components/Article',
       input: ['./src/components/Article/index.tsx'],
       outDir: 'dist/Article',

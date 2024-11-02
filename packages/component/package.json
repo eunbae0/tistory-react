@@ -10,16 +10,10 @@
   },
   "license": "MIT",
   "type": "module",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
   "imports": {
     "#component/*": "./src/*"
   },
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
     "./Article": {
       "types": "./dist/Article/index.d.ts",
       "default": "./dist/Article/index.js"
