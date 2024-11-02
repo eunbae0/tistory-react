@@ -167,9 +167,6 @@ importers:
       '@tistory-react/shared':
         specifier: ^0.0.10-alpha.0
         version: link:../shared
-      '@tistory-react/theme-default':
-        specifier: 0.0.8-alpha.0
-        version: 0.0.8-alpha.0
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -283,9 +280,9 @@ importers:
 
   packages/eslint-plugin:
     dependencies:
-      '@tistory-react/theme-default':
-        specifier: 0.0.8-alpha.0
-        version: 0.0.8-alpha.0
+      '@tistory-react/component':
+        specifier: ^0.0.10-alpha.0
+        version: link:../component
       eslint-plugin-react:
         specifier: ^7.35.2
         version: 7.35.2(eslint@9.9.1(jiti@1.21.6))
@@ -1880,17 +1877,6 @@ packages:
 
   '@theguild/remark-npm2yarn@0.2.1':
     resolution: {integrity: sha512-jUTFWwDxtLEFtGZh/TW/w30ySaDJ8atKWH8dq2/IiQF61dPrGfETpl0WxD0VdBfuLOeU14/kop466oBSRO/5CA==}
-
-  '@tistory-react/runtime@0.0.8-alpha.0':
-    resolution: {integrity: sha512-UrbOaAz94XMyxNYA2K5cnACIR79Hq1g/vRuwc/55gQIZjmg8+OK52iNisHGAy07b35Hyb1D90mvsdYYzdNdqLw==}
-    engines: {node: '>=14.17.6'}
-
-  '@tistory-react/shared@0.0.8-alpha.0':
-    resolution: {integrity: sha512-z6aGzvFhIo3M3ITNR5zvWDScPPpug4r8GHPP/M76FH3zRJJIsbCI3c3YZHHsPFO2bkWlEo6UiKsaDYFCS/D75w==}
-
-  '@tistory-react/theme-default@0.0.8-alpha.0':
-    resolution: {integrity: sha512-xC+99ZW/ZPORJ1FPMPo5N+0XBkXfxUXHoFIh1uun/5kWrBCHAN74sjY8BFv1y/9x2kUyHMpn+X0GwwNM3evkBQ==}
-    engines: {node: '>=14.17.6'}
 
   '@tootallnate/once@2.0.0':
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -8014,27 +8000,6 @@ snapshots:
     dependencies:
       npm-to-yarn: 2.2.1
       unist-util-visit: 5.0.0
-
-  '@tistory-react/runtime@0.0.8-alpha.0':
-    dependencies:
-      '@tistory-react/shared': 0.0.8-alpha.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-router-dom: 6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-
-  '@tistory-react/shared@0.0.8-alpha.0':
-    dependencies:
-      '@rsbuild/core': 1.0.1-beta.2
-      chalk: 5.3.0
-      fs-extra: 11.2.0
-      globby: 14.0.2
-
-  '@tistory-react/theme-default@0.0.8-alpha.0':
-    dependencies:
-      '@tistory-react/runtime': 0.0.8-alpha.0
-      '@tistory-react/shared': 0.0.8-alpha.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   '@tootallnate/once@2.0.0': {}
 

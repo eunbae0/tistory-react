@@ -3,7 +3,7 @@ import type { Rule } from 'eslint';
 import elementType from 'jsx-ast-utils/elementType';
 // import type ESTree from 'estree-jsx';
 import { report } from '../utils/report';
-import * as Theme from '@tistory-react/theme-default/Article';
+import * as Theme from '@tistory-react/component/Article';
 import { tistoryComponentNames } from '../constants';
 
 const messages = {

@@ -30,7 +30,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "@tistory-react/theme-default": "0.0.8-alpha.0",
+    "@tistory-react/component": "^0.0.10-alpha.0",
     "eslint-plugin-react": "^7.35.2",
     "jsx-ast-utils": "^3.3.5"
   },

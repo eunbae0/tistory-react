@@ -1,7 +1,7 @@
-import { Article } from '@tistory-react/theme-default/Article';
-import { Comment } from '@tistory-react/theme-default/Comment';
-import { Sidebar } from '@tistory-react/theme-default/Sidebar';
-import { Tags } from '@tistory-react/theme-default/Tags';
+import { Article } from '@tistory-react/component/Article';
+import { Comment } from '@tistory-react/component/Comment';
+import { Sidebar } from '@tistory-react/component/Sidebar';
+import { Tags } from '@tistory-react/component/Tags';
 
 import type { TistoryComponentsEnum } from 'src/types';
 
