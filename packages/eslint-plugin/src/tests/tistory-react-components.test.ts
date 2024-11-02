@@ -12,7 +12,7 @@ const ruleTester = new RuleTester({
 ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
   valid: [
     {
-      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/theme/Article'
+      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/component/Article'
       import {Comment} from 'tistory-react/theme/Comment'
           const Components = () => {
             return (
@@ -27,7 +27,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
         }`,
     },
     {
-      code: `import {Article as AliasArticle} from 'tistory-react/theme/Article'
+      code: `import {Article as AliasArticle} from 'tistory-react/component/Article'
           const Components = () => {
             return (
               <AliasArticle>
@@ -41,7 +41,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
         }`,
     },
     {
-      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/theme/Article'
+      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/component/Article'
       import {Comment} from 'tistory-react/theme/Comment'
           const Components = () => {
             return (
@@ -56,7 +56,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
         }`,
     },
     {
-      code: `import {Article as AliasArticle} from 'tistory-react/theme/Article'
+      code: `import {Article as AliasArticle} from 'tistory-react/component/Article'
           const Components = () => {
             return (
               <AliasArticle>
@@ -70,7 +70,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
         }`,
     },
     {
-      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/theme/Article'
+      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/component/Article'
       import {Comment} from 'tistory-react/theme/Comment'
           const Components = () => {
             return (
@@ -98,7 +98,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
   ],
   invalid: [
     {
-      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/theme/Article'
+      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/component/Article'
       import {Comment} from 'tistory-react/theme/Comment'
           const Components = () => {
             return (
@@ -112,7 +112,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
       errors: 1,
     },
     {
-      code: `import {Article as AliasArticle} from 'tistory-react/theme/Article'
+      code: `import {Article as AliasArticle} from 'tistory-react/component/Article'
           const Components = () => {
             return (
               <div>
@@ -125,7 +125,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
       errors: 1,
     },
     {
-      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/theme/Article'
+      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/component/Article'
       import {Comment} from 'tistory-react/theme/Comment'
           const Components = () => {
             return (
@@ -139,7 +139,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
       errors: 1,
     },
     {
-      code: `import {Article as AliasArticle} from 'tistory-react/theme/Article'
+      code: `import {Article as AliasArticle} from 'tistory-react/component/Article'
           const Components = () => {
             return (
               <AliasArticle>
@@ -152,7 +152,7 @@ ruleTester.run('tistory-react-components', tistoryReactComponentsRule, {
       errors: 1,
     },
     {
-      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/theme/Article'
+      code: `import {Article, ARTICLE_COMMENT_COUNT} from 'tistory-react/component/Article'
       import {Comment} from 'tistory-react/theme/Comment'
           const Components = () => {
             return (
