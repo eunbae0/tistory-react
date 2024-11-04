@@ -94,7 +94,7 @@ importers:
         specifier: ^0.0.13-alpha.0
         version: link:../component
       '@tistory-react/core':
-        specifier: ^0.0.13-alpha.0
+        specifier: ^0.0.14-alpha.0
         version: link:../core
       '@tistory-react/devtool':
         specifier: ^0.0.13-alpha.0
