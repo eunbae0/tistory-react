@@ -15,6 +15,7 @@ import {
   RecentArticleTitleLink,
   RecentArticleCategoryLink,
 } from './RecentArticle';
+import { RecentComment, RecentCommentLink } from './RecentComment';
 import { Search, SearchInput, SearchInputSubmit } from './Search';
 
 /**
@@ -59,6 +60,9 @@ Sidebar.PopularArticleCategoryLink = PopularArticleCategoryLink;
 
 Sidebar.RandomTags = RandomTags;
 Sidebar.RandomTagsLink = RandomTagsLink;
+
+Sidebar.RecentComment = RecentComment;
+Sidebar.RecentCommentLink = RecentCommentLink;
 
 Sidebar.Search = Search;
 Sidebar.SearchInput = SearchInput;
