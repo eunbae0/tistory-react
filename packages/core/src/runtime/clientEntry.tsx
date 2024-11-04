@@ -1,14 +1,21 @@
 import { isProduction } from '@tistory-react/shared';
 import { BrowserRouter } from '@tistory-react/runtime';
 import { App } from './App';
+import { DevTools } from '@tistory-react/devtool';
+import { useRemoveTistoryTags } from 'utils';
+
+import '@tistory-react/devtool/css';
 
 export async function renderInBrowser() {
   const container = document.getElementById('root')!;
+
+  useRemoveTistoryTags();
 
   const RootApp = () => {
     return (
       <BrowserRouter>
         <App />
+        <DevTools />
       </BrowserRouter>
     );
   };
