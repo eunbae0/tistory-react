@@ -24,10 +24,6 @@ export interface UserConfig {
    */
   root?: string;
   /**
-   * Base path of the site.
-   */
-  base?: string;
-  /**
    * Path to html icon file.
    */
   icon?: string;

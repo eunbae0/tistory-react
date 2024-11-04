@@ -35,6 +35,10 @@ export const SSR_ENTRY = path.join(
 export const OUTPUT_DIR = 'build';
 export const BUNDLE_DIR = 'images';
 
+export const TISTORY_DEFAULT_HTML_NAME = 'index.html';
+export const TISTORY_DEFAULT_XML_NAME = 'index.xml';
+export const TISTORY_DEFAULT_CSS_NAME = 'style.css';
+
 export const APP_HTML_MARKER = '<!--<?- DOC_CONTENT ?>-->';
 export const HEAD_MARKER = '<!--<?- HEAD ?>-->';
 export const META_GENERATOR = '<!--<?- GENERATOR ?>-->';

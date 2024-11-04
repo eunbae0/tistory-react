@@ -20,6 +20,7 @@ import {
   PUBLIC_DIR,
   DEFAULT_TITLE,
   BUNDLE_DIR,
+  TISTORY_DEFAULT_CSS_NAME,
 } from './constants';
 import { initRouteService } from './route/init';
 import { rsbuildPluginDocVM } from './runtimeModule';
@@ -57,12 +58,11 @@ async function createInternalBuildConfig(
   const ssrOutDir = path.join(baseOutDir, 'ssr');
 
   // const DEFAULT_THEME = require.resolve("@rspress/theme-default");
-  const base = config?.base ?? '';
 
   // In production, we need to add assetPrefix in asset path
   const assetPrefix = isProduction()
-    ? removeTrailingSlash(config?.builderConfig?.output?.assetPrefix ?? base)
-    : '';
+    ? removeTrailingSlash(config?.builderConfig?.output?.assetPrefix ?? '.')
+    : '.';
   const reactVersion = await detectReactVersion();
 
   const normalizeIcon = (icon: string | undefined) => {
@@ -148,27 +148,26 @@ async function createInternalBuildConfig(
         'process.env.TEST': JSON.stringify(process.env.TEST),
       },
     },
-    performance: {
-      chunkSplit: {
-        override: {
-          cacheGroups: {
-            // extract all CSS into a single file
-            // ensure CSS in async chunks can be loaded for SSG
-            styles: {
-              name: 'styles',
-              minSize: 0,
-              chunks: 'all',
-              test: /\.(?:css|less|sass|scss)$/,
-              priority: 99,
-            },
-          },
-        },
-      },
-    },
+    // performance: {
+    //   chunkSplit: {
+    //     override: {
+    //       cacheGroups: {
+    //         // extract all CSS into a single file
+    //         // ensure CSS in async chunks can be loaded for SSG
+    //         styles: {
+    //           filename: 'style.css',
+    //           minSize: 0,
+    //           chunks: 'all',
+    //           test: /\.(?:css|less|sass|scss)$/,
+    //           priority: 99,
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
     tools: {
       bundlerChain(chain, { target }) {
         const isServer = target === 'node';
-        console.log('::', isServer);
 
         if (isServer) {
           chain.output.filename('main.cjs');
@@ -194,6 +193,10 @@ async function createInternalBuildConfig(
           overrideBrowserslist: webBrowserslist,
           distPath: {
             root: csrOutDir,
+            css: '.',
+          },
+          filename: {
+            css: TISTORY_DEFAULT_CSS_NAME,
           },
         },
       },

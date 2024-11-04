@@ -9,9 +9,8 @@ import '@tistory-react/devtool/css';
 export async function renderInBrowser() {
   const container = document.getElementById('root')!;
 
-  useRemoveTistoryTags();
-
   const RootApp = () => {
+    useRemoveTistoryTags();
     return (
       <BrowserRouter>
         <App />
